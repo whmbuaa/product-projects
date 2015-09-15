@@ -2,9 +2,8 @@ package com.quick.framework.util.log;
 
 import java.util.Locale;
 
+import android.text.TextUtils;
 import android.util.Log;
-
-import com.android.volley.VolleyLog;
 
 public class QLog {
 
@@ -15,50 +14,50 @@ public class QLog {
         TAG = tag;
     }
 
-    public static void i(String tag, String format, Object... args) {
+    public static void i(String msg) {
         if (LOG_LEVEL <= Log.INFO) {
-            Log.i(TAG, buildMessage(format, args));
+            Log.i(TAG, buildMessage(msg));
         }
     }
-    public static void v(String format, Object... args) {
+    public static void v(String msg) {
         if (LOG_LEVEL <= Log.VERBOSE) {
-            Log.v(TAG, buildMessage(format, args));
+            Log.v(TAG, buildMessage(msg));
         }
     }
 
-    public static void d(String format, Object... args) {
+    public static void d(String msg) {
     	 if (LOG_LEVEL <= Log.DEBUG) {
-    		 Log.d(TAG, buildMessage(format, args));
+    		 Log.d(TAG, buildMessage(msg));
     	 }
     }
 
-    public static void e(String format, Object... args) {
+    public static void e(String msg) {
     	 if (LOG_LEVEL <= Log.ERROR) {
-    		 Log.e(TAG, buildMessage(format, args));
+    		 Log.e(TAG, buildMessage(msg));
     	 }
     }
 
-    public static void e(Throwable tr, String format, Object... args) {
+    public static void e(Throwable tr, String msg) {
     	 if (LOG_LEVEL <= Log.ERROR) {
-    		 Log.e(TAG, buildMessage(format, args), tr);
+    		 Log.e(TAG, buildMessage(msg), tr);
     	 }
     }
 
-    public static void wtf(String format, Object... args) {
+    public static void wtf(String msg) {
     	if (LOG_LEVEL <= Log.ASSERT) {
-   		 Log.wtf(TAG, buildMessage(format, args));
+   		 Log.wtf(TAG, buildMessage(msg));
    	 	}
     }
 
-    public static void wtf(Throwable tr, String format, Object... args) {
+    public static void wtf(Throwable tr, String msg) {
         if (LOG_LEVEL <= Log.ASSERT) {
-        	Log.wtf(TAG, buildMessage(format, args), tr);
+        	Log.wtf(TAG, buildMessage(msg), tr);
       	 }
     }
 
     
-    private static String buildMessage(String format, Object... args) {
-        String msg = (args == null) ? format : String.format(Locale.US, format, args);
+    private static String buildMessage(String msg) {
+       
         StackTraceElement[] trace = new Throwable().fillInStackTrace().getStackTrace();
 
         String caller = "<unknown>";
@@ -69,9 +68,10 @@ public class QLog {
             if (!clazz.equals(QLog.class)) {
                 String callingClass = trace[i].getClassName();
                 callingClass = callingClass.substring(callingClass.lastIndexOf('.') + 1);
-                callingClass = callingClass.substring(callingClass.lastIndexOf('$') + 1);
-
+//                callingClass = callingClass.substring(callingClass.lastIndexOf('$') + 1);
+                
                 caller = callingClass + "." + trace[i].getMethodName();
+               
                 break;
             }
         }
