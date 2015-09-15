@@ -3,7 +3,6 @@ package com.quick.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.quick.demo.network.http.GetHomeArticleListRequest;
 import com.quick.demo.network.http.GetHomeArticleListRequest.RequestResult;
+import com.quick.framework.util.log.QLog;
 
 
 
@@ -29,6 +29,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        QLog.i("onCreate ---enter");
         setContentView(R.layout.activity_main);
         
         mTvMessage = (TextView)findViewById(R.id.message);
@@ -44,7 +46,7 @@ public class MainActivity extends Activity {
 					@Override
 					public void onResponse(RequestResult param) {
 						// TODO Auto-generated method stub
-						Log.i("quick",JSON.toJSONString(param));
+						QLog.i(JSON.toJSONString(param));
 						mTvMessage.setText(JSON.toJSONString(param));
 						
 					}},
@@ -53,7 +55,7 @@ public class MainActivity extends Activity {
 						@Override
 						public void onErrorResponse(VolleyError paramVolleyError) {
 							// TODO Auto-generated method stub
-							Log.i("quick",paramVolleyError.getMessage());
+							QLog.i(paramVolleyError.getMessage());
 							mTvMessage.setText(paramVolleyError.getMessage());
 						}});
 				mRequestQueue.add(request);
