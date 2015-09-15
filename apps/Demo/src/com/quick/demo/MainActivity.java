@@ -17,8 +17,9 @@ import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-import com.quick.framework.network.http.GetHomeArticleListRequest;
-import com.quick.framework.network.http.GetHomeArticleListRequest.RequestResult;
+import com.quick.demo.network.http.GetHomeArticleListRequest;
+import com.quick.demo.network.http.GetHomeArticleListRequest.RequestResult;
+
 
 
 public class MainActivity extends Activity {
