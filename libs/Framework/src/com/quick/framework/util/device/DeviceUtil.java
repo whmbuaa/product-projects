@@ -13,10 +13,12 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Environment;
+import android.os.StatFs;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
+import com.quick.framework.BaseApplication;
 import com.quick.framework.setting.SettingUtil;
 
 public class DeviceUtil {
@@ -55,6 +57,9 @@ public class DeviceUtil {
 		
 	}
 
+	//----------------------------------------public-------------------------------------------------
+	
+	// device id
 	public static String getDeviceId(Context context) {
 		String deviceId = SettingUtil.getString(context, SETTING_KEY_DEVICE_ID, null);
 		if(deviceId == null){
@@ -85,6 +90,10 @@ public class DeviceUtil {
 		}
 		return macAddr;
 	}
+	
+	
+	// cpu information
+	
 	public static String getCPUSerial() {
 		String cpuAddress = "0000000000000000";
 		try {
@@ -135,16 +144,9 @@ public class DeviceUtil {
 			return 1;
 		}
 	}
-	public static boolean hasSdcard() {
-		String status = Environment.getExternalStorageState();
-		if (Environment.MEDIA_MOUNTED.equals(status)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
 	
-	//software
+	
+	//phone software
 	public static String getPhoneModel() {
 		return Build.MODEL;
 	}
@@ -156,7 +158,32 @@ public class DeviceUtil {
 		return Build.VERSION.SDK_INT;
 	}
 	
-	
+
+	// file system information
+	public static boolean hasSdcard() {
+		String status = Environment.getExternalStorageState();
+		if (Environment.MEDIA_MOUNTED.equals(status)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public static long getInternalAvailableBytes(){
+		StatFs sat = new StatFs(BaseApplication.getApplication().getFilesDir().getAbsolutePath());
+		return sat.getAvailableBlocks()*sat.getBlockSize();
+	}
+	public static long getInternalTotalBytes(){
+		StatFs sat = new StatFs(BaseApplication.getApplication().getFilesDir().getAbsolutePath());
+		return sat.getBlockCount()*sat.getBlockSize();
+	}
+	public static long getExternalAvailableBytes(){
+		StatFs sat = new StatFs(Environment.getRootDirectory().getAbsolutePath());
+		return sat.getAvailableBlocks()*sat.getBlockSize();
+	}
+	public static long getExternalTotalBytes(){
+		StatFs sat = new StatFs(Environment.getRootDirectory().getAbsolutePath());
+		return sat.getBlockCount()*sat.getBlockSize();
+	}
 }
 
 

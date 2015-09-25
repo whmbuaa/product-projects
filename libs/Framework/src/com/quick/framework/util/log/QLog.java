@@ -2,18 +2,27 @@ package com.quick.framework.util.log;
 
 import java.util.Locale;
 
+import com.quick.framework.BaseApplication;
+import com.quick.framework.util.app.AppUtil;
+
 import android.text.TextUtils;
 import android.util.Log;
 
 public class QLog {
 
-	private static String TAG = "Quick";
+	// tag is the app name by default
+	private static String TAG = AppUtil.getAppName(BaseApplication.getApplication());
+	
 	private static final int LOG_LEVEL = Log.VERBOSE;
 	
     public static void setTag(String tag) {
         TAG = tag;
     }
 
+    public static String getTag() {
+        return TAG;
+    }
+    
     public static void i(String msg) {
         if (LOG_LEVEL <= Log.INFO) {
             Log.i(TAG, buildMessage(msg));

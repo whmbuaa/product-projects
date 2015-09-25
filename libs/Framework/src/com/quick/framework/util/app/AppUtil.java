@@ -1,15 +1,18 @@
 package com.quick.framework.util.app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 
+import com.quick.framework.BaseApplication;
+
 public class AppUtil {
 	
-	
+	// attributes
 	public static String getAppName(Context context) {
 		String appName = null;;
 		try {
@@ -62,6 +65,18 @@ public class AppUtil {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	
+	//operations
+	public static void restartApp(Context context){
+		//restart
+		Intent intent = context.getPackageManager()  
+		        .getLaunchIntentForPackage(context.getPackageName());  
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);  
+		context.startActivity(intent); 
+		//exit current
+		BaseApplication.getApplication().exit();
 	}
 	
 }

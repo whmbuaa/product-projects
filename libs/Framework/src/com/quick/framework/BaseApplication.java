@@ -12,17 +12,29 @@ public class BaseApplication extends Application {
 	public void onCreate() {
 		// TODO Auto-generated method stub
 		super.onCreate();
-		appInit();
+		init();
 	}
 	
 	public static BaseApplication getApplication(){
 		return sApplication;
 	}
 	
-	protected void appInit(){
+	public void exit(){
+		release();
+		System.exit(0);
+	}
+	
+	
+	protected void init(){
 		sApplication = this;
 		
 		// image loader
 		ImageLoadUtil.init(this);
 	}
+	
+	protected void release(){
+		
+	}
+	
+	
 }
