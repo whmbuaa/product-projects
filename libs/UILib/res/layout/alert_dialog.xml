@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="#ffff0000"
+    >
+    <!-- title -->
+    <LinearLayout 
+        android:id="@+id/dialog_title_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/transparent"
+        android:visibility="gone">
+        <TextView 
+            android:id="@+id/dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="35dp"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:textColor="#ffffff"
+            android:background="@android:color/transparent"
+            android:text="我的家乡在哪里"/>
+        <View
+            android:id="@+id/line_below_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#ff0000"
+            android:visibility="gone" />    
+    </LinearLayout>
+	<!-- content -->
+	<LinearLayout
+	    android:id="@+id/dialog_content_container"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="35dp"
+	    android:background="@android:color/transparent"
+	    android:orientation="vertical">
+        <TextView
+            android:id = "@+id/dialog_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#ffffff"
+            android:visibility="gone"
+            android:lineSpacingExtra="3dp"
+            android:text="this is the message."/>
+        <ImageView 
+            android:id="@+id/content_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:scaleType="fitCenter"/>
+        <!-- use below line to make the width fill parent. still not know the reason -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/transparent" />   
+    </LinearLayout>
+    <!-- buttons -->
+   	<LinearLayout 
+        android:id="@+id/dialog_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@null"
+        android:visibility="gone">
+        <TextView 
+            android:id="@+id/dialog_negative_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingTop="21dp"
+            android:paddingBottom="21dp"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:textColor="#ffffff"
+            android:visibility="gone"
+            android:background="#00ff00"
+            android:text="取消"/>
+        <View 
+            android:id="@+id/button_divider"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"/>
+        <TextView 
+            android:id="@+id/dialog_positive_button"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingTop="21dp"
+            android:paddingBottom="21dp"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:textColor="#ffffff"
+            android:visibility="gone"
+           	android:background="#00ff00"
+            android:text="确定"/>    
+    </LinearLayout>
+   	
+</LinearLayout>
