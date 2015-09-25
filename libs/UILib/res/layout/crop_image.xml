@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!-- image the ghe grid -->
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_horizontal"
+        android:textSize="18dp"
+        android:textColor="#ffffff"
+        android:text="图片裁剪"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+        <com.dangdang.sociality.picturechooser.ZoomImageView
+        	android:id="@+id/image"
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent"/>
+        <LinearLayout
+        	android:layout_width="match_parent"
+        	android:layout_height="match_parent"
+        	android:orientation="vertical"
+        	>
+        	<!-- mask top -->
+        	<View
+        		android:layout_width="match_parent"
+        		android:layout_height="0dp"
+        		android:layout_weight="1000"
+        		android:background="#88000000"/>
+        	<!-- the transparent frame -->	
+        	<com.dangdang.sociality.picturechooser.TransparentFrameGridView
+        		android:id="@+id/crop_window"
+        		android:layout_width="match_parent"
+        		android:layout_height="match_parent"
+        		android:background="@drawable/bg_crop_image_frame"/>
+        	<!-- mask bottom -->
+        	<View
+        		android:layout_width="match_parent"
+        		android:layout_height="0dp"
+        		android:layout_weight="1000"
+        		android:background="#88000000"/>	
+        	
+        </LinearLayout>	
+    </FrameLayout>
+
+    <!-- button container -->
+	<RelativeLayout
+	    android:id="@+id/button_container"
+	    android:layout_width="match_parent"
+	    android:layout_height="48dp"
+	    android:background="#000000">
+     <ImageButton
+	        android:id="@+id/cancel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:padding="5dp"
+	        android:layout_marginLeft="5dp"
+	        android:gravity="center"
+	        android:background="@null"
+	        android:src="@drawable/ic_btn_close"/>
+	     <ImageButton
+	        android:id="@+id/rotate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:layout_centerInParent="true"
+	        android:padding="5dp"
+	        android:background="@null"
+	        android:src="@drawable/ic_btn_crop_image_rotate"/>
+	     
+	      <ImageButton
+	        android:id="@+id/confirm"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:padding="5dp"
+	        android:layout_marginRight="5dp"
+	        android:gravity="center"
+	        android:background="@null"
+	        android:src="@drawable/ic_btn_ok" />
+	    
+	</RelativeLayout>
+</LinearLayout>
