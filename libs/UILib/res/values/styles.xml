@@ -36,5 +36,13 @@
         <item name="android:clickable">true</item>
         <item name="android:background">@drawable/bg_text_action_sheet_item</item>
     </style>
-
+       
+    <style name="bottom_tab">
+        <item name="bottom_tab_bar_background">#ff000000</item>
+        <item name="bottom_tab_bar_top_bottom_padding">3dp</item>
+         <item name="bottom_tab_item_background">@android:color/transparent</item>
+        <item name="bottom_tab_item_textColor">@color/bottom_tab_item_text</item>
+        <item name="bottom_tab_item_textSize">12dp</item>
+        <item name="bottom_tab_item_minimal_dot_size">3dp</item>
+    </style>
 </resources>

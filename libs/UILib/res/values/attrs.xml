@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="quick">
+        <attr name="bottom_tab_bar_background" format="reference|color"/>
+        <attr name="bottom_tab_bar_top_bottom_padding" format="dimension" />
+        <attr name="bottom_tab_item_background" format="reference|color"/>
+        <attr name="bottom_tab_item_textColor" format="reference|color"/>
+        <attr name="bottom_tab_item_textSize" format="dimension"/>
+        <attr name="bottom_tab_item_minimal_dot_size" format="dimension" />
+    </declare-styleable>
+</resources>
