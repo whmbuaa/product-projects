@@ -18,12 +18,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.quick.demo.network.http.GetHomeArticleListRequest;
 import com.quick.demo.network.http.GetHomeArticleListRequest.RequestResult;
+import com.quick.framework.util.app.DoubleClickExitHelper;
 import com.quick.framework.util.log.QLog;
 
 
 
 public class MainActivity extends Activity {
 
+	private DoubleClickExitHelper mDBClickExitListener;
+	
 	private TextView mTvMessage;
 	private RequestQueue mRequestQueue;
     @Override
@@ -35,6 +38,7 @@ public class MainActivity extends Activity {
         
         mTvMessage = (TextView)findViewById(R.id.message);
         mRequestQueue = Volley.newRequestQueue(this);
+        mDBClickExitListener = new DoubleClickExitHelper(this);
         
         findViewById(R.id.get_home_list).setOnClickListener(new OnClickListener() {
 			
@@ -59,11 +63,27 @@ public class MainActivity extends Activity {
 							mTvMessage.setText(paramVolleyError.getMessage());
 						}});
 				mRequestQueue.add(request);
+			
+			}
+		});
+        
+        
+        findViewById(R.id.universal_radio_button).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				UniversalRadioGroupActivity.launch(MainActivity.this);
 			}
 		});
     }
 
 
+    @Override
+    public void onBackPressed() {
+    	// TODO Auto-generated method stub
+    	mDBClickExitListener.onBackPressed();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -19,5 +19,11 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Get Home List"/>
+    <Button 
+        android:id="@+id/universal_radio_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/get_home_list"
+        android:text="universal radio button"/>
 
 </RelativeLayout>
