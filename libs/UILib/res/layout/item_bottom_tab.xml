@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="?attr/bottom_tab_item_background"
     >
-    
+  
     <ImageView 
         android:id="@+id/tab_image"
         android:layout_width="wrap_content"
@@ -21,6 +21,16 @@
         android:textColor="?attr/bottom_tab_item_textColor"
         />
 
+      <com.quick.uilib.badgeview.BadgeView 
+        android:id="@+id/tab_has_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/tab_image"
+        android:translationX="-5dp"
+        android:text="99"
+        android:textSize="?attr/bottom_tab_item_has_new_textSize"
+        android:textColor="?attr/bottom_tab_item_has_new_textColor"/>
 </com.quick.uilib.universalradiogroup.RadioRelativeLayout>
 
  

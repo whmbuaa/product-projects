@@ -6,6 +6,8 @@
         <attr name="bottom_tab_item_background" format="reference|color"/>
         <attr name="bottom_tab_item_textColor" format="reference|color"/>
         <attr name="bottom_tab_item_textSize" format="dimension"/>
-        <attr name="bottom_tab_item_minimal_dot_size" format="dimension" />
+        <attr name="bottom_tab_item_has_new_textColor" format="reference|color"/>
+        <attr name="bottom_tab_item_has_new_textSize" format="dimension"/>
+        <attr name="bottom_tab_item_minimal_dot_radius" format="dimension" />
     </declare-styleable>
 </resources>

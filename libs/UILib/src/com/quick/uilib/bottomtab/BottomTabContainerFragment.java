@@ -26,7 +26,7 @@ import com.quick.uilib.universalradiogroup.UniversalRadioGroup.OnCheckedChangeLi
  * @author wanghaiming
  *
  */
-abstract public class BottomTabFragment extends BaseFragment {
+abstract public class BottomTabContainerFragment extends BaseFragment {
 
 	private List<BottomTab>  mBottomTabs;
 	private View        mFragmentContainer;
@@ -60,11 +60,12 @@ abstract public class BottomTabFragment extends BaseFragment {
 				FragmentManager fm = getActivity().getSupportFragmentManager();
 				FragmentTransaction ft = fm.beginTransaction();
 				
-				Fragment checkedFragment = fm.findFragmentByTag(mBottomTabs.get(checkedId-R.id.bottom_bar_button_0).getClass().getName());
+				BottomTabContentFragment checkedFragment = (BottomTabContentFragment)fm.findFragmentByTag(mBottomTabs.get(checkedId-R.id.bottom_bar_button_0).getClass().getName());
 		
 				try {
 					if(checkedFragment == null){
 						checkedFragment = mBottomTabs.get(checkedId-R.id.bottom_bar_button_0).getFragmentClass().newInstance();
+						checkedFragment.setBottomTab(mBottomTabs.get(checkedId-R.id.bottom_bar_button_0));
 						ft.add(R.id.fragment_container,checkedFragment, checkedFragment.getClass().getName());
 					}
 					else{

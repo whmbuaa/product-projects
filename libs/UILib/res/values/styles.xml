@@ -43,6 +43,9 @@
          <item name="bottom_tab_item_background">@android:color/transparent</item>
         <item name="bottom_tab_item_textColor">@color/bottom_tab_item_text</item>
         <item name="bottom_tab_item_textSize">12dp</item>
-        <item name="bottom_tab_item_minimal_dot_size">3dp</item>
+        <item name="bottom_tab_item_minimal_dot_radius">3dp</item>
+        <item name="bottom_tab_item_has_new_textColor">#ffffffff</item>
+        <item name="bottom_tab_item_has_new_textSize">9dp</item>
+         
     </style>
 </resources>
