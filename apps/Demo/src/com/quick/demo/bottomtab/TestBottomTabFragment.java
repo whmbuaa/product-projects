@@ -5,9 +5,10 @@ import java.util.List;
 
 import com.quick.demo.R;
 import com.quick.uilib.bottomtab.BottomTab;
-import com.quick.uilib.bottomtab.BottomTabFragment;
+import com.quick.uilib.bottomtab.BottomTabContainerFragment;
 
-public class TestBottomTabFragment extends BottomTabFragment {
+
+public class TestBottomTabFragment extends BottomTabContainerFragment {
 
 	@Override
 	protected List<BottomTab> getBottomTabs() {

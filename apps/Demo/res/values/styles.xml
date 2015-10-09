@@ -15,23 +15,15 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-    
-        <item name="bottom_tab_bar_background">#ff000000</item>
-        <item name="bottom_tab_bar_top_bottom_padding">3dp</item>
-    
-        <item name="bottom_tab_item_background">@android:color/transparent</item>
-        <item name="bottom_tab_item_textColor">@color/bottom_tab_item_text</item>
-        <item name="bottom_tab_item_textSize">18dp</item>
-        <item name="bottom_tab_item_minimal_dot_size">3dp</item>
       
     </style>
 
     <style name="bottom_tab">
-        <item name="bottom_tab_bar_background">#ffff0000</item>
+        <item name="bottom_tab_bar_background">#ff000000</item>
         <item name="bottom_tab_bar_top_bottom_padding">3dp</item>
          <item name="bottom_tab_item_background">@android:color/transparent</item>
         <item name="bottom_tab_item_textColor">@color/bottom_tab_item_text</item>
         <item name="bottom_tab_item_textSize">12dp</item>
-        <item name="bottom_tab_item_minimal_dot_size">3dp</item>
+        <item name="bottom_tab_item_minimal_dot_radius">3dp</item>
     </style>
 </resources>
