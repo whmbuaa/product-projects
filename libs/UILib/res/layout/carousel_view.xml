@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#ff00ff00">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ff0000ff"
+        />
+	<RadioGroup
+	    android:id="@+id/pos_indicator" 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center_horizontal|bottom"
+	    android:layout_marginBottom="10dp"
+	    android:orientation="horizontal"
+	    >
+	     
+	</RadioGroup>
+</FrameLayout>

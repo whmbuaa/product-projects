@@ -10,4 +10,16 @@
     <item type="id" name="bottom_bar_button_7" />
     <item type="id" name="bottom_bar_button_8" />
     <item type="id" name="bottom_bar_button_9" />
+    
+    
+    <item type="id" name="position_indicator_0" />
+    <item type="id" name="position_indicator_1" />
+    <item type="id" name="position_indicator_2" />
+    <item type="id" name="position_indicator_3" />
+    <item type="id" name="position_indicator_4" />
+    <item type="id" name="position_indicator_5" />
+    <item type="id" name="position_indicator_6" />
+    <item type="id" name="position_indicator_7" />
+    <item type="id" name="position_indicator_8" />
+    <item type="id" name="position_indicator_9" />
 </resources>
