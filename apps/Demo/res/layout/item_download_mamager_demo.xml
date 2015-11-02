@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:layout_alignParentTop="true"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:id="@+id/name_prompt"
+        android:layout_alignTop="@+id/name"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:id="@+id/name"
+        android:layout_marginLeft="46dp"
+        android:layout_toRightOf="@id/name_prompt"
+        android:layout_below="@id/progress_bar"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="file name"
+        android:id="@+id/file_name_prompt"
+        android:layout_alignTop="@+id/file_name"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:id="@+id/file_name"
+        android:layout_below="@id/name"
+        android:layout_toRightOf="@+id/file_name_prompt"
+        android:layout_alignLeft="@id/name"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="full path"
+        android:id="@+id/full_path_prompt"
+        android:layout_alignTop="@+id/full_path"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:id="@+id/full_path"
+        android:layout_below="@+id/file_name"
+        android:layout_toRightOf="@+id/full_path_prompt"
+        android:layout_alignLeft="@id/name"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="speed"
+        android:id="@+id/speed_prompt"
+        android:layout_alignTop="@+id/speed"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:id="@+id/speed"
+        android:layout_below="@+id/full_path"
+        android:layout_toRightOf="@+id/speed_prompt"
+        android:layout_alignLeft="@id/name"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="mime"
+        android:id="@+id/mime_prompt"
+        android:layout_alignTop="@+id/mime"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:id="@+id/mime"
+        android:layout_below="@+id/speed"
+        android:layout_toRightOf="@+id/mime_prompt"
+        android:layout_alignLeft="@id/name"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="status"
+        android:id="@+id/status_prompt"
+        android:layout_alignTop="@+id/status"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:id="@+id/status"
+        android:layout_below="@+id/mime"
+        android:layout_toRightOf="@+id/status"
+        android:layout_alignLeft="@id/name"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="total size"
+        android:id="@+id/total_size_prompt"
+        android:layout_alignTop="@+id/total_size"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:id="@+id/total_size"
+
+        android:layout_below="@+id/status"
+        android:layout_toRightOf="@+id/total_size_prompt"
+        android:layout_alignLeft="@id/name"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="finished size"
+        android:id="@+id/finished_size_prompt"
+        android:layout_alignTop="@+id/finished_size"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:id="@+id/finished_size"
+
+        android:layout_below="@+id/total_size"
+        android:layout_toRightOf="@+id/finished_size_prompt"
+        android:layout_alignLeft="@id/name"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="url"
+        android:id="@+id/url_prompt"
+        android:layout_alignTop="@+id/url"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="unknown"
+        android:id="@+id/url"
+
+        android:layout_below="@+id/finished_size"
+        android:layout_toRightOf="@+id/url_prompt"
+        android:layout_alignLeft="@id/name"
+        />
+</RelativeLayout>
