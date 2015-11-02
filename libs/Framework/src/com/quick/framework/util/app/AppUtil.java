@@ -18,7 +18,7 @@ public class AppUtil {
 		try {
 			PackageInfo packInfo = context.getPackageManager().getPackageInfo(
 					context.getPackageName(), 0);
-			appName = packInfo.applicationInfo.toString();
+			appName = packInfo.applicationInfo.loadLabel(context.getPackageManager()).toString();
 		} catch (Exception e) {
 		}
 		return appName;
