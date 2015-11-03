@@ -1,4 +1,4 @@
-package com.quick.uilib.badgeview;
+package com.quick.uilib.textview;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
