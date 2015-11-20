@@ -41,6 +41,7 @@ public class WireFrameTextView extends TextView {
 		
 		GradientDrawable bgDrawable = new GradientDrawable();
 		bgDrawable.setShape(GradientDrawable.RECTANGLE);
+		bgDrawable.setColor(0x00000000);
 		bgDrawable.setCornerRadius(mCornerRadius*DENSITY);
 		setBackgroundDrawable(bgDrawable);
 		setGravity(Gravity.CENTER);
