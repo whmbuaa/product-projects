@@ -86,7 +86,7 @@ public class TitleBar extends LinearLayout {
 		}
 		
 	}
-	ImageButton bt = null;
+	
 	private void init(Context context){
 		mContext = context;
 	
