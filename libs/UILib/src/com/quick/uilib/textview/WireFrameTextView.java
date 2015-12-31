@@ -8,6 +8,12 @@ import android.util.Log;
 import android.view.Gravity;
 import android.widget.TextView;
 
+/*
+ *  A TextView. 
+ *  1. has a wire frame.
+ *  2. the frame color can change according to the color of the text if it's a color selector.
+ *  3. the background is set to transparent
+ */
 public class WireFrameTextView extends TextView {
 	
 	private static final int DEFAULT_WIRE_WIDTH = 1; //3 dp;

@@ -6,6 +6,11 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.TextView;
 
+/*
+ * a red dot like TextView. the shape of it is round
+ * 1. the color is now set to red
+ * 2. the radius will be the same as the maximum of width or height.
+ */
 public class BadgeView extends TextView {
 
 	
