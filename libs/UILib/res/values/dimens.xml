@@ -6,4 +6,6 @@
 
     <!-- common dimmensions -->
     <dimen name="page_hotizontal_margin">15dp</dimen>
+    <dimen name="height_titlebar_dialog">43dp</dimen>
+    <dimen name="height_titlebar_fragment">48dp</dimen>
 </resources>

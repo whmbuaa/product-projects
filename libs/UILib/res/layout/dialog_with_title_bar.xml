@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <com.quick.uilib.titlebar.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_titlebar_dialog"
+        android:layout_alignParentTop="true"
+ 		android:background="@drawable/bg_dialog_titlebar"      
+       />
+    <FrameLayout 
+        android:id="@+id/frag_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_bar"
+        android:orientation="vertical"
+        android:background="@android:color/transparent"
+        />
+
+</RelativeLayout>

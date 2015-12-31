@@ -6,7 +6,7 @@
     <com.dangdang.sociality.ui.TitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="@dimen/height_titlebar_fragment"
         android:layout_alignParentTop="true" 
         />
     <LinearLayout 
