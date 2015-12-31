@@ -9,5 +9,13 @@
         android:layout_height="120dp"
         android:layout_alignParentTop="true"
         android:background="#ffff0000"/>
+    <Button
+        android:id="@+id/launch_titlebar_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/carousel_view"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="launch titlebar dialog" />
  	
 </RelativeLayout>
