@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import com.quick.demo.R;
+import com.quick.demo.titlebardialog.TestTitlebarDialog;
 import com.quick.uilib.bottomtab.BottomTabContentFragment;
 import com.quick.uilib.carouselview.CarouselView;
 import com.quick.uilib.carouselview.CarouselView.CarouselData;
@@ -33,6 +34,16 @@ public class TestTabFragment1 extends BottomTabContentFragment {
 		// TODO Auto-generated method stub
 		View contentView = inflater.inflate(R.layout.test_tab_frag_1, null);
 		setupCarouselView(contentView);
+		
+		contentView.findViewById(R.id.launch_titlebar_dialog).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				TestTitlebarDialog dialog = new TestTitlebarDialog();
+				dialog.show(getFragmentManager(), "");
+			}
+		});
 		return contentView;
 	}
 	
