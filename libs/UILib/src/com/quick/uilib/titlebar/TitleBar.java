@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.quick.uilib.titlebar;
 
 import android.content.Context;
@@ -16,87 +13,100 @@ import android.widget.TextView;
 
 import com.quick.uilib.R;
 
-/**
- * @author wanghaiming
- *
- */
-public class TitleBar extends LinearLayout {
+
+
+public class TitleBar  extends LinearLayout  {
 
 	private View mLeftBtn;
-	private TextView    mTitle;
-	private ViewGroup   mRightBtnContainer;
 	private ViewGroup   mLeftBtnContainer;
+	private TextView    mTitle;
 	private ViewGroup   mTitleViewContainer;
 	
-	private Context		mContext;
+	private ViewGroup   mRightBtnContainer;
+	
+	
 	
 	public TitleBar(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
-		init(context);
+		initView();
 	}
 
 	public TitleBar(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
-		init(context);
+		initView();
 	}
-
-	public void setTitle(String title){
+	
+	
+	public void setTitle(String title) {
+		// TODO Auto-generated method stub
 		mTitle.setText(title);
 	}
-	public void setTitleView(View titleView){
+
+	
+	public void setTitleView(View titleView) {
+		// TODO Auto-generated method stub
+		mTitle.setVisibility(View.GONE);
+		mTitleViewContainer.setVisibility(View.GONE);
 		if(titleView != null){
-			mTitle.setVisibility(View.GONE);
 			mTitleViewContainer.setVisibility(View.VISIBLE);
-			LinearLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+			mTitleViewContainer.removeAllViews();
+			
+			LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
 			titleView.setLayoutParams(params);
 			mTitleViewContainer.addView(titleView);
 		}
-	}
 	
-	public void setLeftButton(View leftButton){
-		
-		int padding = getResources().getDimensionPixelSize(R.dimen.page_hotizontal_margin);
-		leftButton.setPadding(padding, 0, padding, 0);
-		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-		params.addRule(RelativeLayout.CENTER_VERTICAL);
-		
-		leftButton.setLayoutParams(params);
-		leftButton.setBackgroundDrawable(null);
-		
-		mLeftBtnContainer.removeView(mLeftBtn);
-		mLeftBtnContainer.addView(leftButton);
-	
-		mLeftBtn = leftButton;
-		
 	}
-	public void setLeftButtonOnClickListener(OnClickListener listener){
-		mLeftBtn.setOnClickListener(listener);
-	}
+
 	
-	public void setRightButtons(View[] buttons){
-		mRightBtnContainer.removeAllViews();
-		for(View view : buttons){
-			LinearLayout.LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-			view.setLayoutParams(params);
-			view.setBackgroundDrawable(null);
-			mRightBtnContainer.addView(view);
+	public void setLeftButton(View leftButton) {
+		// TODO Auto-generated method stub
+		if(mLeftBtn != null){
+			mLeftBtnContainer.removeView(mLeftBtn);
 		}
 		
+		if(leftButton != null){
+			int padding = getResources().getDimensionPixelSize(R.dimen.activity_horizontal_margin);
+			leftButton.setPadding(padding, 0, padding, 0);
+			RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+			params.addRule(RelativeLayout.CENTER_VERTICAL);
+			
+			leftButton.setLayoutParams(params);
+			mLeftBtnContainer.addView(leftButton);
+			
+			mLeftBtn = leftButton;
+		}
 	}
+
+
 	
-	private void init(Context context){
-		mContext = context;
+	public void setRightButtons(View[] rightButtons) {
+		// TODO Auto-generated method stub
+		mRightBtnContainer.removeAllViews();
+
+		if(rightButtons != null){
+			
+			for(View view : rightButtons){
+				LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+				view.setLayoutParams(params);
+				mRightBtnContainer.addView(view);
+			}
+		}
+	}
+
 	
-		mLeftBtnContainer = (ViewGroup)inflate(context, R.layout.title_bar, null);
-		mLeftBtn = (ImageButton)mLeftBtnContainer.findViewById(R.id.default_left_back);
+	
+	private void initView(){
+		
+		mLeftBtnContainer = (ViewGroup)((ViewGroup)inflate(getContext(), R.layout.title_bar, this)).getChildAt(0);
+		
 		mTitle = (TextView)mLeftBtnContainer.findViewById(R.id.title);
 		mRightBtnContainer = (LinearLayout)mLeftBtnContainer.findViewById(R.id.right_btn_container);
 		mTitleViewContainer = (ViewGroup)mLeftBtnContainer.findViewById(R.id.title_view_container);
 		
-		addView(mLeftBtnContainer);
 	}
 
 	public static Button createButton(Context context,String btnString){
@@ -107,5 +117,10 @@ public class TitleBar extends LinearLayout {
 		
 		return button;
 	}
-	
+	public static ImageButton createImageButton(Context context,int imageResId ){
+		ImageButton button = new ImageButton(context);
+		button.setBackgroundDrawable(null);
+		button.setImageResource(imageResId);
+		return button;
+	}
 }

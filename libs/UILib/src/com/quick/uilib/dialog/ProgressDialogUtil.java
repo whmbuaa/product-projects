@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.quick.uilib.toast.dialog;
+package com.quick.uilib.dialog;
 
 
 import android.app.Dialog;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.quick.uilib.toast.dialog;
+package com.quick.uilib.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -308,7 +308,7 @@ public class QAlertDialog extends Dialog {
 	
 	public static void test(final Context context){
 		QAlertDialog dialog = new QAlertDialog(context)
-		.setTitle("王宝强 ")
+		.setTitle("王宝�? ")
 //		.setMessage("我是金三顺，大家好，澡堂老板家的男人")
 		.setContentImageRes(R.drawable.ic_launcher)
 		.setButtonNegative("取消 ")
@@ -318,13 +318,13 @@ public class QAlertDialog extends Dialog {
 			@Override
 			public void onPositiveClicked(Dialog dialog, Bundle result) {
 				// TODO Auto-generated method stub
-				ToastUtil.showToast(context, "确定 点击 了 ");
+				ToastUtil.showToast(context, "确定 点击 �? ");
 			}
 			
 			@Override
 			public void onNegativeClicked(Dialog dialog) {
 				// TODO Auto-generated method stub
-				ToastUtil.showToast(context, "取消  点击 了 ");
+				ToastUtil.showToast(context, "取消  点击 �? ");
 			}
 		});
 		dialog.show();

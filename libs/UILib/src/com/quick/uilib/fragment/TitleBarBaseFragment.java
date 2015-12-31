@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.quick.uilib.titlebar;
+package com.quick.uilib.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.quick.uilib.BaseFragment;
 import com.quick.uilib.R;
+import com.quick.uilib.titlebar.TitleBar;
 
 /**
  * @author wanghaiming
@@ -24,7 +25,7 @@ public abstract class TitleBarBaseFragment extends BaseFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		View containerView = inflater.inflate(R.layout.title_bar_and_content, null);
+		View containerView = inflater.inflate(R.layout.fragment_with_title_bar, null);
 		ViewGroup contentContainer = (ViewGroup)containerView.findViewById(R.id.content_container);
 		
 		// add content view
