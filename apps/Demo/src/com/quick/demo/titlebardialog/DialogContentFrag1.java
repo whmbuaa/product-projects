@@ -51,7 +51,7 @@ public class DialogContentFrag1 extends AbstractContentFragment {
 	@Override
 	public View getLeftButton(Context context) {
 		// TODO Auto-generated method stub
-		return TitleBar.createImageButton(getActivity(), R.drawable.ic_bulk_purchase_back);
+		return null;
 	}
 
 	@Override
