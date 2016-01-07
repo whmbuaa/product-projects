@@ -14,10 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.LinearLayout;
 
 import com.quick.framework.util.log.QLog;
-import com.quick.uilib.BaseFragment;
 import com.quick.uilib.R;
 import com.quick.uilib.universalradiogroup.UniversalRadioGroup;
 import com.quick.uilib.universalradiogroup.UniversalRadioGroup.OnCheckedChangeListener;
@@ -26,7 +24,7 @@ import com.quick.uilib.universalradiogroup.UniversalRadioGroup.OnCheckedChangeLi
  * @author wanghaiming
  *
  */
-abstract public class BottomTabContainerFragment extends BaseFragment {
+abstract public class BottomTabContainerFragment extends Fragment {
 
 	private List<BottomTab>  mBottomTabs;
 	private View        mFragmentContainer;

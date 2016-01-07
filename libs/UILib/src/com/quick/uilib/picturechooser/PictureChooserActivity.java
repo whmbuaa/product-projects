@@ -16,11 +16,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 
 import com.quick.framework.util.dir.DirUtil;
-import com.quick.uilib.BaseFragment;
 import com.quick.uilib.R;
 import com.quick.uilib.actionsheet.DialogActionSheet;
 
@@ -279,7 +279,7 @@ public class PictureChooserActivity extends Activity {
 //		context.startActivity(intent,requestCode);
 //	}
 	
-	public static void startForResult(BaseFragment fragment, boolean needFilter, boolean needCrop,int requestCode){
+	public static void startForResult(Fragment fragment, boolean needFilter, boolean needCrop,int requestCode){
 		
 		Intent intent = new Intent(fragment.getActivity(),PictureChooserActivity.class);
 		intent.putExtra(PictureChooserConstant.KEY_PIC_NEED_FILTER, needFilter);
