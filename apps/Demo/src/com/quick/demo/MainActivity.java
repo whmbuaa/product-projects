@@ -18,6 +18,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.quick.demo.network.http.GetHomeArticleListRequest;
 import com.quick.demo.network.http.GetHomeArticleListRequest.RequestResult;
+import com.quick.demo.titlebaractivity.DemoTitleBarActivity;
+import com.quick.demo.titlebaractivity.loading.DemoLoadingActivity;
 import com.quick.framework.util.app.DoubleClickExitHelper;
 import com.quick.framework.util.log.QLog;
 
@@ -74,6 +76,22 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				UniversalRadioGroupActivity.launch(MainActivity.this);
+			}
+		});
+        findViewById(R.id.titlebar).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				DemoTitleBarActivity.launch(MainActivity.this);
+			}
+		});
+        findViewById(R.id.loading).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				DemoLoadingActivity.launch(MainActivity.this);
 			}
 		});
     }

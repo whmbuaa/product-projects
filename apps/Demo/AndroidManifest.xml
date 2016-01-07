@@ -26,6 +26,9 @@
             </intent-filter>
         </activity>
          <activity  android:name=".UniversalRadioGroupActivity" />
+         <activity  android:name="com.quick.demo.titlebaractivity.DemoTitleBarActivity" />
+         <activity  android:name="com.quick.demo.titlebaractivity.loading.DemoLoadingActivity" />
+         
     </application>
 
 </manifest>

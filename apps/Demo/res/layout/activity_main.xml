@@ -26,4 +26,17 @@
         android:layout_below="@id/get_home_list"
         android:text="universal radio button"/>
 
+      <Button 
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/universal_radio_button"
+        android:text="titlebar"/>
+       <Button 
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titlebar"
+        android:text="loading"/>
+    
 </RelativeLayout>
