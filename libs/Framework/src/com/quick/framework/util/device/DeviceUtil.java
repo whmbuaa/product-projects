@@ -97,23 +97,22 @@ public class DeviceUtil {
 	public static String getCPUSerial() {
 		String cpuAddress = "0000000000000000";
 		try {
-			// ∂¡»°CPU–≈œ¢
+
 			Process pp = Runtime.getRuntime().exec("system/proc/cpuinfo");
 			InputStreamReader ir = new InputStreamReader(pp.getInputStream());
 			LineNumberReader input = new LineNumberReader(ir);
-			// ≤È’“CPU–Ú¡–∫≈
+
 			for (int i = 1; i < 500; i++) {
 				String str = input.readLine();
 				if (str != null) {
 					str = str.substring(str.indexOf(":") + 1, str.length());
 					cpuAddress += str.trim();
 				} else {
-					// Œƒº˛Ω·Œ≤
+					// ÔøΩƒºÔøΩÔøΩÔøΩŒ≤
 					break;
 				}
 			}
 		} catch (IOException ex) {
-			// ∏≥”Ëƒ¨»œ÷µ
 			ex.printStackTrace();
 		}
 		return cpuAddress;
