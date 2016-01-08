@@ -78,7 +78,7 @@ public class DemoLoadingFragment extends LoadingFragment {
 			{
 				LoadingFailView loadingFailView = getLoadingFailView();
 				loadingFailView.setImageResId(R.drawable.pic_loading_fail_network_error+result%2)
-								.setMessage("³ö´íÁË")
+								.setMessage("ç½‘ç»œé”™è¯¯")
 								.setOnRefreshListener(new OnClickListener() {
 									
 									@Override
@@ -103,7 +103,7 @@ public class DemoLoadingFragment extends LoadingFragment {
 	@Override
 	protected void initTitleBar(TitleBar titleBar) {
 		// TODO Auto-generated method stub
-		titleBar.setTitle("µÚ¶þ´ÎÊÔÑé");
+		titleBar.setTitle("ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		View leftButton = TitleBar.createImageButton(getActivity(), R.drawable.ic_back);
 		leftButton.setOnClickListener(new OnClickListener() {
 			
@@ -115,7 +115,7 @@ public class DemoLoadingFragment extends LoadingFragment {
 		});
 		titleBar.setLeftButton(leftButton);
 		
-		View rightButton = TitleBar.createButton(getActivity(), "ÉèÖÃ");
+		View rightButton = TitleBar.createButton(getActivity(), "ï¿½ï¿½ï¿½ï¿½");
 		titleBar.setRightButtons(new View[]{rightButton});
 	}
 

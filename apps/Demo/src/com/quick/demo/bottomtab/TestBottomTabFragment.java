@@ -15,10 +15,10 @@ public class TestBottomTabFragment extends BottomTabContainerFragment {
 		// TODO Auto-generated method stub
 		List<BottomTab> result = new LinkedList<BottomTab>();
 		
-		result.add(new BottomTab(getActivity(), R.drawable.tab_home_selector, "首页", TestTabFragment1.class));
-		result.add(new BottomTab(getActivity(), R.drawable.tab_store_selector, "书城", TestTabFragment2.class));
-		result.add(new BottomTab(getActivity(), R.drawable.tab_find_selector, "发现", TestTabFragment3.class));
-		result.add(new BottomTab(getActivity(), R.drawable.tab_personal_selector, "个人中心", TestTabFragment4.class));
+		result.add(new BottomTab(getActivity(), R.drawable.tab_home_selector, "棣栭〉", TestTabFragment1.class));
+		result.add(new BottomTab(getActivity(), R.drawable.tab_store_selector, "涔﹀煄", TestTabFragment2.class));
+		result.add(new BottomTab(getActivity(), R.drawable.tab_find_selector, "鍙戠幇", TestTabFragment3.class));
+		result.add(new BottomTab(getActivity(), R.drawable.tab_personal_selector, "鎴戠殑", TestTabFragment4.class));
 		
 		return result;
 	}

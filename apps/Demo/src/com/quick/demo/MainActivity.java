@@ -1,6 +1,7 @@
 package com.quick.demo;
 
 
+import rx.functions.Action1;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.quick.demo.network.http.GetHomeArticleListRequest;
 import com.quick.demo.network.http.GetHomeArticleListRequest.RequestResult;
+import com.quick.demo.reactx.CombineObservable;
 import com.quick.demo.titlebaractivity.DemoTitleBarActivity;
 import com.quick.demo.titlebaractivity.loading.DemoLoadingActivity;
 import com.quick.framework.util.app.DoubleClickExitHelper;
@@ -92,6 +94,22 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				DemoLoadingActivity.launch(MainActivity.this);
+			}
+		});
+        findViewById(R.id.rxjava_combine).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				CombineObservable.combineListObservable()
+//				.observeOn(Schedulers.)subscribe(new Action1<Integer>() {
+//
+//					@Override
+//					public void call(Integer param) {
+//						// TODO Auto-generated method stub
+//						QLog.i("hahahaha------"+param);
+//					}
+//				});
 			}
 		});
     }

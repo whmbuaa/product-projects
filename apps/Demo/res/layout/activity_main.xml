@@ -38,5 +38,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/titlebar"
         android:text="loading"/>
+         android:text="titlebar"/>
+       <Button 
+        android:id="@+id/rxjava_combine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loading"
+        android:text="rxjava combine"/>
     
 </RelativeLayout>

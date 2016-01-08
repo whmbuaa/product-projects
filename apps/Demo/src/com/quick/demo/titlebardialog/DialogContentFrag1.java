@@ -45,7 +45,7 @@ public class DialogContentFrag1 extends AbstractContentFragment {
 	@Override
 	public String getTitle() {
 		// TODO Auto-generated method stub
-		return "Ôªµ©¿ìÀÖ";
+		return "æˆ‘æ˜¯æ ‡é¢˜";
 	}
 
 	@Override

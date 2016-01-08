@@ -19,7 +19,7 @@ public class DemoTitleBarFragment extends TitleBarFragment {
 	@Override
 	protected void initTitleBar(TitleBar titleBar) {
 		// TODO Auto-generated method stub
-		titleBar.setTitle("µ⁄∂˛¥Œ ‘—È");
+		titleBar.setTitle("Ê†áÈ¢òÊ†è");
 		View leftButton = TitleBar.createImageButton(getActivity(), R.drawable.ic_back);
 		leftButton.setOnClickListener(new OnClickListener() {
 			
@@ -31,7 +31,7 @@ public class DemoTitleBarFragment extends TitleBarFragment {
 		});
 		titleBar.setLeftButton(leftButton);
 		
-		View rightButton = TitleBar.createButton(getActivity(), "…Ë÷√");
+		View rightButton = TitleBar.createButton(getActivity(), "ËÆæÁΩÆ");
 		titleBar.setRightButtons(new View[]{rightButton});
 	}
 
