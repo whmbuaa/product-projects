@@ -28,7 +28,7 @@ public class CombineObservable {
 					
 				}
 			}
-		}).observeOn(Schedulers.newThread());
+		}).subscribeOn(Schedulers.newThread());
 	}
 	
 	public static Observable<Integer> combineLatestObservable(){

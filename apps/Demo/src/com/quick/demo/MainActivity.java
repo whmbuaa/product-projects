@@ -1,7 +1,10 @@
 package com.quick.demo;
 
 
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
+import rx.schedulers.Schedulers;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -100,16 +103,17 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-//				CombineObservable.combineListObservable()
-//				.observeOn(Schedulers.)subscribe(new Action1<Integer>() {
-//
-//					@Override
-//					public void call(Integer param) {
-//						// TODO Auto-generated method stub
-//						QLog.i("hahahaha------"+param);
-//					}
-//				});
+				// TODO Auto-generated method stub
+				CombineObservable.combineListObservable()
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Action1<Integer>() {
+
+					@Override
+					public void call(Integer param) {
+						// TODO Auto-generated method stub
+						QLog.i("hahahaha------"+param);
+					}
+				});
 			}
 		});
     }
