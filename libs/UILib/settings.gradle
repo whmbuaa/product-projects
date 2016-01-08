@@ -1,0 +1,3 @@
+include  ':Framework',
+project(':Framework').projectDir = new File(settingsDir,'../../libs/Framework')
+

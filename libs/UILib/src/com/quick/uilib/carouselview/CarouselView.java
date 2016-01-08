@@ -28,7 +28,7 @@ import com.quick.framework.imageload.ImageLoadUtil;
 import com.quick.uilib.R;
 
 /*
- * ÂÖ²¥¿Ø¼þ£º lun bo 
+ * è½®æ’­æŽ§ä»¶
  */
 public class CarouselView extends RelativeLayout {
 
