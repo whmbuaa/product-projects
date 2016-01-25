@@ -17,7 +17,7 @@
         android:id="@+id/get_home_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="40dp"
         android:text="Get Home List"/>
     <Button 
         android:id="@+id/universal_radio_button"
@@ -45,5 +45,17 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/loading"
         android:text="rxjava combine"/>
+    <Button
+        android:id="@+id/retrofit_rxjava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rxjava_combine"
+        android:text="retrofit_rxjava"/>
+    <Button
+        android:id="@+id/temp_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/retrofit_rxjava"
+        android:text="temp_test"/>
     
 </RelativeLayout>
