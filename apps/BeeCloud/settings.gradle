@@ -1,0 +1,3 @@
+include  ':Framework', ':UILib'
+project(':Framework').projectDir = new File(settingsDir,'../../libs/Framework')
+project(':UILib').projectDir = new File(settingsDir , '../../libs/UILib')
