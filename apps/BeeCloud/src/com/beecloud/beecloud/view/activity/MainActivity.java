@@ -1,9 +1,13 @@
-package com.beecloud.beecloud;
+package com.beecloud.beecloud.view.activity;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.beecloud.beecloud.R;
 
 
 public class MainActivity extends Activity {
@@ -32,5 +36,10 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public static void launch(Context context) {
+        Intent intent = new Intent(context,MainActivity.class);
+        context.startActivity(intent);
     }
 }

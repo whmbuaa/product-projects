@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_common_margin">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_user_name"
+        android:layout_gravity="left"
+        android:layout_marginTop="50dp"
+        android:textSize="@dimen/common_text_size"
+        android:hint="手机号" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/et_password"
+        android:layout_marginTop="@dimen/view_vertical_space"
+        android:layout_gravity="left"
+        android:textSize="@dimen/common_text_size"
+        android:hint="密码"
+        android:text="登录"
+        android:selectAllOnFocus="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:id="@+id/bt_login"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/view_vertical_space"
+        android:textSize="@dimen/common_text_size" />
+
+</LinearLayout>
