@@ -58,12 +58,15 @@ abstract public class BottomTabContainerFragment extends Fragment {
 				FragmentManager fm = getActivity().getSupportFragmentManager();
 				FragmentTransaction ft = fm.beginTransaction();
 				
-				BottomTabContentFragment checkedFragment = (BottomTabContentFragment)fm.findFragmentByTag(mBottomTabs.get(checkedId-R.id.bottom_bar_button_0).getClass().getName());
+				Fragment checkedFragment = (BottomTabContentFragment)fm.findFragmentByTag(mBottomTabs.get(checkedId-R.id.bottom_bar_button_0).getClass().getName());
 		
 				try {
 					if(checkedFragment == null){
 						checkedFragment = mBottomTabs.get(checkedId-R.id.bottom_bar_button_0).getFragmentClass().newInstance();
-						checkedFragment.setBottomTab(mBottomTabs.get(checkedId-R.id.bottom_bar_button_0));
+						if(checkedFragment instanceof IBottomTabContent){
+
+							((IBottomTabContent)checkedFragment).setBottomTab(mBottomTabs.get(checkedId-R.id.bottom_bar_button_0));
+						}
 						ft.add(R.id.fragment_container,checkedFragment, checkedFragment.getClass().getName());
 					}
 					else{

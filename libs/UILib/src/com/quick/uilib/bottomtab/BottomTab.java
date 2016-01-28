@@ -14,8 +14,8 @@ public class BottomTab {
 	private View mView;
 	private TextView  mHasNew;
 	
-	private Class<? extends BottomTabContentFragment> mFragmentClass;
-	public BottomTab(Context context,int iconResId,String text, Class<? extends BottomTabContentFragment> fragmentClass){
+	private Class<? extends Fragment> mFragmentClass;
+	public BottomTab(Context context,int iconResId,String text, Class<? extends Fragment> fragmentClass){
 		mView = View.inflate(context,  R.layout.item_bottom_tab, null);
 		
 		
@@ -35,7 +35,7 @@ public class BottomTab {
 	public View getView(){
 		return mView;
 	}
-	public Class<? extends BottomTabContentFragment> getFragmentClass(){
+	public Class<? extends Fragment> getFragmentClass(){
 		return mFragmentClass;
 	}
 	public void setHasNew(int num){
