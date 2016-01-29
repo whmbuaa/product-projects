@@ -6,9 +6,9 @@ import com.quick.uilib.R;
 
 
 
-public class DefaultLoadingFailView extends LoadingFailView {
+public class SimpleLoadingFailView extends LoadingFailView {
 
-	public DefaultLoadingFailView(Context context) {
+	public SimpleLoadingFailView(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
 	}
@@ -16,7 +16,7 @@ public class DefaultLoadingFailView extends LoadingFailView {
 	@Override
 	protected int getContentLayoutResId() {
 		// TODO Auto-generated method stub
-		return R.layout.view_default_loading_fail;
+		return R.layout.view_simple_loading_fail;
 	}
 
 }

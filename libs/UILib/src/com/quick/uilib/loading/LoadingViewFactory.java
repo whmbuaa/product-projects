@@ -5,6 +5,6 @@ import android.view.View;
 
 public interface LoadingViewFactory {
 
-	View createLoadingView(Context context);
+	LoadingView createLoadingView(Context context);
 	LoadingFailView createLoadingFailView(Context context);
 }
