@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/list_item_common_margin"
+                android:background="@color/common_item_bg">
+    <!--line one-->
+    <TextView
+        android:id="@+id/tv_pickup_phone_number_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="提货电话"/>
+    <TextView
+        android:id="@+id/tv_pickup_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_pickup_phone_number_hint"
+        android:layout_alignBottom="@id/tv_pickup_phone_number_hint"
+        android:gravity="left"
+        android:text="13811074556"/>
+    <!--line 2-->
+    <TextView
+        android:id="@+id/tv_pickup_date_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tv_pickup_phone_number_hint"
+        android:text="提货日期"/>
+    <TextView
+        android:id="@+id/tv_pickup_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_pickup_date_hint"
+        android:layout_alignBottom="@id/tv_pickup_date_hint"
+        android:gravity="left"
+        android:text="2016-1-23"/>
+    <!--line 3-->
+    <TextView
+        android:id="@+id/tv_pickup_address_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tv_pickup_date_hint"
+        android:text="经销商名称"/>
+    <TextView
+        android:id="@+id/tv_pickup_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_pickup_address_hint"
+        android:layout_alignBottom="@id/tv_pickup_address_hint"
+        android:gravity="left"
+        android:text="北京市海淀区学院路37号"/>
+    <!--line 4-->
+    <TextView
+        android:id="@+id/tv_pickup_spending_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tv_pickup_address_hint"
+        android:text="提货费用"/>
+    <TextView
+        android:id="@+id/tv_pickup_spending"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_pickup_spending_hint"
+        android:layout_alignBottom="@id/tv_pickup_spending_hint"
+        android:gravity="left"
+        android:text="22345.6"/>
+    <!--line 5-->
+    <TextView
+        android:id="@+id/tv_hardware_info_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/tv_pickup_spending_hint"
+        android:text="五金信息"/>
+    <TextView
+        android:id="@+id/tv_hardware_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_hardware_info_hint"
+        android:layout_alignBottom="@id/tv_hardware_info_hint"
+        android:gravity="left"
+        android:text="格拉斯把手，阻尼抽屉"/>
+</RelativeLayout>

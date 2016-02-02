@@ -9,7 +9,10 @@ import android.view.ViewGroup;
 
 import com.beecloud.beecloud.R;
 import com.beecloud.beecloud.presenter.OrderListAdapter;
+import com.beecloud.beecloud.view.activity.OrderDetailActivity;
 import com.quick.uilib.bottomtab.TBBottomTabContentFragment;
+import com.quick.uilib.recyclerview.DividerItemDecoration;
+import com.quick.uilib.recyclerview.OnItemClickListener;
 import com.quick.uilib.titlebar.TitleBar;
 
 /**
@@ -26,7 +29,20 @@ public class HomeFragment  extends TBBottomTabContentFragment {
     private void init(View mainView) {
         RecyclerView recyclerView = (RecyclerView)mainView.findViewById(R.id.order_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new OrderListAdapter(null ));
+        OrderListAdapter adapter = new OrderListAdapter(null );
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                OrderDetailActivity.launch(getActivity());
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
+        recyclerView.setAdapter(adapter);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL_LIST));
     }
 
     @Override

@@ -36,7 +36,7 @@ public class LoginPresenter {
 
                if(!subscriber.isUnsubscribed()){
                    try{
-                       Thread.sleep(2000); // sleep 2 seconds
+                       Thread.sleep(1000); // sleep 2 seconds
                    }
                    catch(Exception e){
 

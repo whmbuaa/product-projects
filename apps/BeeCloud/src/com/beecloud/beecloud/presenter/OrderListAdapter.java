@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.beecloud.beecloud.R;
 import com.beecloud.beecloud.model.bean.OrderBrief;
+import com.quick.uilib.recyclerview.OnItemClickListener;
 
 import java.util.List;
 
@@ -17,10 +18,17 @@ import java.util.List;
 public class OrderListAdapter  extends RecyclerView.Adapter<OrderListAdapter.OrderListViewHolder> {
 
     private List<OrderBrief>  mOrderBriefList;
+    private OnItemClickListener mOnItemClickListener;
 
     public OrderListAdapter(List<OrderBrief> orderBriefList){
         mOrderBriefList = orderBriefList;
     }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        mOnItemClickListener = onItemClickListener;
+    }
+
+
     @Override
     public OrderListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         OrderListViewHolder holder = new OrderListViewHolder(parent.inflate(parent.getContext(),R.layout.item_order_list,null));
@@ -28,11 +36,27 @@ public class OrderListAdapter  extends RecyclerView.Adapter<OrderListAdapter.Ord
     }
 
     @Override
-    public void onBindViewHolder(OrderListViewHolder holder, int position) {
+    public void onBindViewHolder(OrderListViewHolder holder, final int position) {
 //        OrderBrief data = mOrderBriefList.get(position);
 //        holder.mTvId.setText(String.valueOf(data.getId()));
 
         holder.mTvId.setText(String.valueOf(position));
+        if(mOnItemClickListener != null){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnItemClickListener.onItemClick(view,position);
+                }
+            });
+
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    mOnItemClickListener.onItemLongClick(view,position);
+                    return false;
+                }
+            });
+        }
 
     }
 

@@ -8,5 +8,10 @@
     <dimen name="view_horizontal_space">16dp</dimen>
     <dimen name="view_vertical_space">16dp</dimen>
 
+    <dimen name="common_view_margin">16dp</dimen>
     <dimen name="common_text_size">16dp</dimen>
+
+    <dimen name="list_item_common_margin">5dp</dimen>
+    <dimen name="common_seperator_height">2dp</dimen>
+
 </resources>
