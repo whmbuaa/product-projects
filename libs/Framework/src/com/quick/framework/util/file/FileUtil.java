@@ -48,6 +48,14 @@ public class FileUtil {
         }
     }
 
+    public static String getFileName(String fullPath) {
+        if (TextUtils.isEmpty(fullPath)) {
+            return null;
+        }
+        File file = new File(fullPath);
+        return file.getName();
+    }
+
     public static boolean isFileExists(String filePath) {
         if (TextUtils.isEmpty(filePath)) {
             return false;
