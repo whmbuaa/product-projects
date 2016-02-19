@@ -2,10 +2,14 @@ package com.beecloud.beecloud.rest;
 
 
 import com.beecloud.beecloud.model.bean.User;
+import com.beecloud.beecloud.rest.bean.ApiUser;
 
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
+import retrofit.http.Field;
+import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import rx.Observable;
 import rx.functions.Func1;
 
@@ -15,7 +19,9 @@ import rx.functions.Func1;
 public class RestApiManager {
 
     public interface RestApiService {
-
+        @FormUrlEncoded
+        @POST("/Login")
+        Observable<ApiUser> login(@Field("UserName")String userName, @Field("FPassWord")String password);
 
     }
 
@@ -42,7 +48,7 @@ public class RestApiManager {
             }
         };
         mRestAdapter = new RestAdapter.Builder()
-                .setEndpoint("http://123.57.209.236/AppAPI/")
+                .setEndpoint("http://123.57.209.236/AppAPI")
                 .setRequestInterceptor(requestInterceptor)
                 .setConverter(new FastJsonConverter())
                 .build();

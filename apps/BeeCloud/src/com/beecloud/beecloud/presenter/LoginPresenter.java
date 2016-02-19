@@ -1,12 +1,15 @@
 package com.beecloud.beecloud.presenter;
 
 import android.content.Context;
+import android.widget.Toast;
 
 
 import com.beecloud.beecloud.model.UserModel;
 import com.beecloud.beecloud.rest.RestApiManager;
 import com.beecloud.beecloud.rest.RestError;
+import com.beecloud.beecloud.rest.bean.ApiUser;
 import com.beecloud.beecloud.view.ILoginView;
+import com.quick.uilib.toast.ToastUtil;
 
 import java.util.Random;
 
@@ -29,7 +32,7 @@ public class LoginPresenter {
         mLoginView = loginView;
         mUserModel = UserModel.getInstance(context);
     }
-    public Subscription login(){
+    public Subscription login_old(){
        Subscription subscription = Observable.create(new Observable.OnSubscribe<Boolean>() {
            @Override
            public void call(Subscriber<? super Boolean> subscriber) {
@@ -63,6 +66,30 @@ public class LoginPresenter {
                       }
                   }
              );
+        return subscription;
+    }
+
+    public Subscription login(String userName,String password){
+        Subscription subscription = RestApiManager.getService().login(userName,password)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<com.beecloud.beecloud.rest.bean.ApiUser>() {
+                               @Override
+                               public void onCompleted() {
+
+                               }
+
+                               @Override
+                               public void onError(Throwable e) {
+                                   mLoginView.loginFail(e);
+                               }
+
+                               @Override
+                               public void onNext(com.beecloud.beecloud.rest.bean.ApiUser user) {
+                                   mLoginView.loginSuccess(user);
+                               }
+                           }
+                );
         return subscription;
     }
 }

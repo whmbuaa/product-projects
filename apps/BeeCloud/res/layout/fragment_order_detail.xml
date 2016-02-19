@@ -16,13 +16,13 @@
             android:text="订单信息"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <include layout="@layout/item_order_list"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <!--提货信息-->
         <TextView
             android:layout_width="wrap_content"
@@ -31,13 +31,13 @@
             android:text="提货信息"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <include layout="@layout/view_pickup_info"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <!--其他要求-->
         <TextView
             android:layout_width="wrap_content"
@@ -46,16 +46,16 @@
             android:text="其他要求"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/common_item_bg"/>
+            android:background="@color/list_item_common_bg"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <!--调度记录-->
         <TextView
             android:layout_width="wrap_content"
@@ -64,16 +64,16 @@
             android:text="调度记录"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/common_item_bg"/>
+            android:background="@color/list_item_common_bg"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <!--特殊情况记录-->
         <TextView
             android:layout_width="wrap_content"
@@ -82,16 +82,16 @@
             android:text="特殊情况记录"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/common_item_bg"/>
+            android:background="@color/list_item_common_bg"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <!--完工情况-->
         <TextView
             android:layout_width="wrap_content"
@@ -100,17 +100,17 @@
             android:text="完工情况"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/common_item_bg">
+            android:background="@color/list_item_common_bg">
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_margin="@dimen/common_view_margin"
+                android:layout_margin="@dimen/view_common_margin"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/pic_renovation_1"
                 android:scaleType="centerCrop"/>
@@ -118,13 +118,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textSize="@dimen/common_text_size"
+                android:textSize="@dimen/text_common_size"
                 android:text="   拍照   "/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/common_seperator_height"
-            android:background="@color/common_seperator_bg"/>
+            android:layout_height="@dimen/line_big_height"
+            android:background="@color/line_common_bg"/>
 
     </LinearLayout>
 </ScrollView>

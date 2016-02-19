@@ -13,7 +13,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/view_horizontal_space"
+            android:layout_margin="@dimen/view_horizontal_margin"
             android:text="未完订单"
             />
         <Button
@@ -21,7 +21,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/view_horizontal_space"
+            android:layout_margin="@dimen/view_horizontal_margin"
             android:text="完成订单"
             />
         <Button
@@ -29,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/view_horizontal_space"
+            android:layout_margin="@dimen/view_horizontal_margin"
             android:text="创建订单"
             />
 

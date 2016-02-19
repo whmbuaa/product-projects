@@ -13,15 +13,15 @@ dependencies {
     compile project (':UILib')
     compile project (':Framework')
 
-    compile  'io.reactivex:rxjava:1.1.0'
-    compile  'io.reactivex:rxandroid:1.1.0'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
+
 
 }
 
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.0"
+
+
 
     sourceSets {
         main {
@@ -46,6 +46,7 @@ android {
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
     }
+
 }
 
 allprojects {

@@ -13,6 +13,7 @@ import com.beecloud.beecloud.R;
 import com.beecloud.beecloud.model.UserModel;
 import com.beecloud.beecloud.model.bean.User;
 import com.beecloud.beecloud.presenter.LoginPresenter;
+import com.beecloud.beecloud.rest.bean.ApiUser;
 import com.beecloud.beecloud.view.ILoginView;
 import com.quick.uilib.dialog.ProgressDialogUtil;
 import com.quick.uilib.toast.ToastUtil;
@@ -77,22 +78,18 @@ public class LoginActivity extends FragmentActivity implements ILoginView {
             @Override
             public void onClick(View view) {
                 ProgressDialogUtil.show(LoginActivity.this,"",false);
-               mSubscriptionList.add(mLoginPresenter.login());
+                String userName = mEtUserName.getEditableText().toString();
+                String password = mEtPassword.getEditableText().toString();
+                userName = "13910858795";
+                password="123";
+                mSubscriptionList.add(mLoginPresenter.login(userName,password));
             }
         });
     }
-    @Override
-    public String getUserName() {
-        return mEtUserName.getEditableText().toString();
-    }
+
 
     @Override
-    public String getPassword() {
-        return mEtPassword.getEditableText().toString();
-    }
-
-    @Override
-    public void loginSuccess(User user) {
+    public void loginSuccess(ApiUser user) {
         ProgressDialogUtil.dismiss();
         finish();
         MainActivity.launch(this);

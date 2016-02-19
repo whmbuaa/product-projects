@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:focusable="true"
+              android:focusableInTouchMode="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/bt_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/button_common_margin"
+            android:layout_weight="1"
+            android:textSize="@dimen/button_common_text_size"
+            android:text="提交"/>
+        <Button
+            android:id="@+id/bt_create_by_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/button_common_margin"
+            android:layout_weight="1"
+            android:textSize="@dimen/button_common_text_size"
+            android:text="拍照下单"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_big_height"
+        android:background="@color/line_common_bg"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!--安装信息-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:textSize="@dimen/text_common_size"
+                android:text="安装信息"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_big_height"
+                android:background="@color/line_common_bg"/>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/view_common_margin"
+                android:stretchColumns="1"
+                >
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="安装地址: "/>
+                    <EditText
+                        />
+                </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_small_height"
+                    android:background="@color/line_common_bg"/>
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="联系人: "/>
+                    <EditText
+                        />
+                </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_small_height"
+                    android:background="@color/line_common_bg"/>
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="联系电话: "/>
+                    <EditText
+                        />
+                </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_small_height"
+                    android:background="@color/line_common_bg"/>
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="安装内容: "/>
+                    <EditText
+                        />
+                </TableRow>
+            </TableLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_big_height"
+                android:background="@color/line_common_bg"/>
+
+            <!--提货信息-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/view_vertical_margin"
+                android:layout_marginBottom="@dimen/view_vertical_margin"
+                android:textSize="@dimen/text_common_size"
+                android:text="提货信息"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_big_height"
+                android:background="@color/line_common_bg"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/view_common_margin"
+                android:stretchColumns="1">
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="提货地址: "/>
+                    <EditText
+                        />
+                </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_small_height"
+                    android:background="@color/line_common_bg"/>
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="联系人: "/>
+                    <EditText
+                        />
+                </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_small_height"
+                    android:background="@color/line_common_bg"/>
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="联系电话: "/>
+                    <EditText
+                        />
+                </TableRow>
+
+            </TableLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_big_height"
+                android:background="@color/line_common_bg"/>
+
+            <!--其他-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/view_vertical_margin"
+                android:layout_marginBottom="@dimen/view_vertical_margin"
+                android:textSize="@dimen/text_common_size"
+                android:text="其他"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_big_height"
+                android:background="@color/line_common_bg"/>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/view_common_margin"
+                android:stretchColumns="1">
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="其他要求: "/>
+                    <EditText
+                        />
+                </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_small_height"
+                    android:background="@color/line_common_bg"/>
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="五金信息: "/>
+                    <EditText
+                        />
+                </TableRow>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_small_height"
+                    android:background="@color/line_common_bg"/>
+                <TableRow>
+                    <TextView
+                        android:textSize="@dimen/text_common_size"
+                        android:gravity="left"
+                        android:text="代收金额: "/>
+                    <EditText
+                        />
+                </TableRow>
+
+            </TableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_big_height"
+                android:background="@color/line_common_bg"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
