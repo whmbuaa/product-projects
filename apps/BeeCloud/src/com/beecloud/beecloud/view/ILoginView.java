@@ -8,6 +8,6 @@ import com.beecloud.beecloud.rest.bean.ApiUser;
  */
 public interface ILoginView {
 
-    void loginSuccess(ApiUser user);
+    void loginSuccess(User user);
     void loginFail(Throwable error);
 }

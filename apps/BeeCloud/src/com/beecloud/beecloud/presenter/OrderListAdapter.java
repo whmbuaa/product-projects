@@ -1,13 +1,12 @@
 package com.beecloud.beecloud.presenter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.beecloud.beecloud.R;
-import com.beecloud.beecloud.model.bean.OrderBrief;
+import com.beecloud.beecloud.model.bean.Order;
 import com.quick.uilib.recyclerview.OnItemClickListener;
 
 import java.util.List;
@@ -17,11 +16,11 @@ import java.util.List;
  */
 public class OrderListAdapter  extends RecyclerView.Adapter<OrderListAdapter.OrderListViewHolder> {
 
-    private List<OrderBrief>  mOrderBriefList;
+    private List<Order> mOrderList;
     private OnItemClickListener mOnItemClickListener;
 
-    public OrderListAdapter(List<OrderBrief> orderBriefList){
-        mOrderBriefList = orderBriefList;
+    public OrderListAdapter(List<Order> orderList){
+        mOrderList = orderList;
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -37,7 +36,7 @@ public class OrderListAdapter  extends RecyclerView.Adapter<OrderListAdapter.Ord
 
     @Override
     public void onBindViewHolder(OrderListViewHolder holder, final int position) {
-//        OrderBrief data = mOrderBriefList.get(position);
+//        Order data = mOrderList.get(position);
 //        holder.mTvId.setText(String.valueOf(data.getId()));
 
         holder.mTvId.setText(String.valueOf(position));
@@ -62,7 +61,7 @@ public class OrderListAdapter  extends RecyclerView.Adapter<OrderListAdapter.Ord
 
     @Override
     public int getItemCount() {
-//        return mOrderBriefList.size();
+//        return mOrderList.size();
         return 30 ;
     }
 

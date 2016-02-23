@@ -1,52 +1,49 @@
 package com.beecloud.beecloud.model.bean;
 
+import android.annotation.SuppressLint;
+
+import com.avos.avoscloud.AVUser;
+
 import java.io.Serializable;
 
 /**
  * Created by wanghaiming on 2016/1/27.
  */
-public class User implements Serializable {
-    public enum UserType{
-        WORKER,
-        SHOP
-    }
+@SuppressLint("ParcelCreator")
+public class User extends AVUser {
 
-    private String mUserName;
-    private String mNick;
-    private String mToken;
-    private UserType mType;
+    public static final int ROLE_WORKER = 0;
+    public static final int ROLE_SHOP = 1;
 
+    public static final String NICK = "nick";
+    public static final String TYPE = "type";
+    public static final String AVATAR_URL = "avatar_url";
+    public static final String MOBILE_PHONE_NUMBER = "mobilePhoneNumber";
 
-    public String getUserName() {
-        return mUserName;
-    }
-
-    public void setUserName(String userName) {
-        mUserName = userName;
-    }
 
     public String getNick() {
-        return mNick;
+        return getString(NICK);
     }
 
     public void setNick(String nick) {
-        mNick = nick;
+        put(NICK,nick);
     }
 
-    public UserType getType() {
-        return mType;
+    public int getType() {
+        return getInt(TYPE);
     }
 
-    public void setType(UserType type) {
-        mType = type;
+    public void setType(int type) {
+        put(TYPE,type);
     }
 
-    public String getToken() {
-        return mToken;
+    public String getAvatarUrl() {
+        return getString(AVATAR_URL);
     }
 
-    public void setToken(String token) {
-        mToken = token;
+    public void setAvatarUrl(String avatarUrl) {
+        put(AVATAR_URL,avatarUrl);
     }
+
 
 }

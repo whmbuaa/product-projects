@@ -11,6 +11,8 @@ import com.quick.framework.util.log.QLog;
 
 import org.json.JSONArray;
 
+import java.util.Map;
+
 import rx.Observable;
 
 /**
@@ -41,7 +43,22 @@ public class UserModel implements IUserModel {
     }
 
     @Override
+    public Observable<Boolean> signup(String userName, String password, Map<String, String> args) {
+        return null;
+    }
+
+    @Override
     public Observable<Boolean> logout() {
+        return null;
+    }
+
+    @Override
+    public Observable<Boolean> requestSmsCode(String mobilePhoneNumber) {
+        return null;
+    }
+
+    @Override
+    public Observable<Boolean> verifySmsCode(String mobilePhoneNumber, String smsCode) {
         return null;
     }
 
@@ -59,7 +76,7 @@ public class UserModel implements IUserModel {
         return user;
     }
 
-    @Override
+
     public void saveLogedInUser(User user) {
 
         SettingUtil.putString(mContext,PREF_LOGGED_IN_USER, JSON.toJSONString(user,SerializerFeature.WriteClassName));

@@ -34,4 +34,13 @@
         android:textSize="@dimen/text_common_size"
         android:text="登录"/>
 
+    <Button
+        android:id="@+id/bt_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/view_vertical_margin"
+        android:layout_gravity="bottom"
+        android:textSize="@dimen/text_common_size"
+        android:text="注册"/>
+
 </LinearLayout>

@@ -1,10 +1,9 @@
 package com.beecloud.beecloud.view.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +12,6 @@ import com.beecloud.beecloud.R;
 import com.beecloud.beecloud.model.UserModel;
 import com.beecloud.beecloud.model.bean.User;
 import com.beecloud.beecloud.presenter.LoginPresenter;
-import com.beecloud.beecloud.rest.bean.ApiUser;
 import com.beecloud.beecloud.view.ILoginView;
 import com.quick.uilib.dialog.ProgressDialogUtil;
 import com.quick.uilib.toast.ToastUtil;
@@ -35,6 +33,7 @@ public class LoginActivity extends FragmentActivity implements ILoginView {
     private EditText  mEtUserName;
     private EditText  mEtPassword;
     private Button    mBtnLogin;
+    private Button    mBtnSignup;
 
     // for network request
     private List<Subscription> mSubscriptionList;
@@ -73,6 +72,7 @@ public class LoginActivity extends FragmentActivity implements ILoginView {
         mEtUserName = (EditText)findViewById(R.id.et_user_name);
         mEtPassword = (EditText)findViewById(R.id.et_password);
         mBtnLogin = (Button)findViewById(R.id.bt_login);
+        mBtnSignup = (Button)findViewById(R.id.bt_signup);
 
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,16 +80,20 @@ public class LoginActivity extends FragmentActivity implements ILoginView {
                 ProgressDialogUtil.show(LoginActivity.this,"",false);
                 String userName = mEtUserName.getEditableText().toString();
                 String password = mEtPassword.getEditableText().toString();
-                userName = "13910858795";
-                password="123";
                 mSubscriptionList.add(mLoginPresenter.login(userName,password));
+            }
+        });
+        mBtnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SignupActivity.launch(LoginActivity.this);
             }
         });
     }
 
 
     @Override
-    public void loginSuccess(ApiUser user) {
+    public void loginSuccess(User user) {
         ProgressDialogUtil.dismiss();
         finish();
         MainActivity.launch(this);
@@ -99,5 +103,10 @@ public class LoginActivity extends FragmentActivity implements ILoginView {
     public void loginFail(Throwable error) {
         ProgressDialogUtil.dismiss();
         ToastUtil.showToast(this,error.toString());
+    }
+
+    public static void launch(Context context) {
+        Intent intent = new Intent(context,LoginActivity.class);
+        context.startActivity(intent);
     }
 }
