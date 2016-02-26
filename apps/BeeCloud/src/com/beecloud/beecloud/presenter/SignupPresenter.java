@@ -25,7 +25,7 @@ public class SignupPresenter {
         mSignupView = signupView;
         mUserModel = LeanCloudUserModel.getInstance(context);
     }
-    public Subscription signup(String userName, String password, Map<String, String> args){
+    public Subscription signup(String userName, String password, Map<String, Object> args){
        Subscription subscription =  mUserModel.signup(userName,password,args)
                 .subscribe(new Subscriber<Boolean>() {
                     @Override

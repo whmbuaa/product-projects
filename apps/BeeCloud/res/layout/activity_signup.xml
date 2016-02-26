@@ -76,12 +76,30 @@
 		                android:singleLine="true"
 		                android:imeActionId="@+id/edittext_action_signup"
 		                android:imeOptions="actionUnspecified" />
+					<RadioGroup
+						android:id="@+id/rg_type_selector"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center_horizontal"
+						android:orientation="horizontal"
+						android:checkedButton="@+id/rb_dealer">
+						<RadioButton
+							android:id="@+id/rb_dealer"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="商家"/>
+						<RadioButton
+							android:id="@+id/rb_worker"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="工人"/>
+					</RadioGroup>
 		
 		            <Button
 		                android:id="@+id/bt_signup"
-		                android:layout_width="wrap_content"
+		                android:layout_width="match_parent"
 		                android:layout_height="wrap_content"
-		                android:layout_gravity="end"
+		                android:gravity="center"
 		                android:layout_marginTop="16dp"
 		                android:paddingLeft="32dp"
 		                android:paddingRight="32dp"

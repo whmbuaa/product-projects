@@ -9,12 +9,28 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/bt_order_all"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/view_horizontal_margin"
+            android:text="所有"
+            />
+        <Button
+            android:id="@+id/bt_order_untaken"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/view_horizontal_margin"
+            android:text="未认"
+            />
+        <Button
             android:id="@+id/bt_order_ongoing"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/view_horizontal_margin"
-            android:text="未完订单"
+            android:text="进行"
             />
         <Button
             android:id="@+id/bt_order_finished"
@@ -22,7 +38,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/view_horizontal_margin"
-            android:text="完成订单"
+            android:text="完成"
             />
         <Button
             android:id="@+id/bt_order_create"
@@ -30,16 +46,20 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/view_horizontal_margin"
-            android:text="创建订单"
+            android:text="创建"
             />
 
     </LinearLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id = "@+id/order_list"
+    <FrameLayout
+        android:id="@+id/list_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="#ff880000"
-        android:dividerHeight="10dp"/>
-
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id = "@+id/order_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#ff880000"
+            android:dividerHeight="10dp"/>
+    </FrameLayout>
 
 </LinearLayout>

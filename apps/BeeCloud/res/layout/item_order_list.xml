@@ -7,35 +7,35 @@
 
     <!--line one-->
     <TextView
-        android:id="@+id/tv_id_hint"
+        android:id="@+id/tv_order_num_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="编号"/>
+        android:text="编号:"/>
     <TextView
-        android:id="@+id/tv_id"
+        android:id="@+id/tv_order_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/tv_id_hint"
-        android:layout_alignBottom="@id/tv_id_hint"
+        android:layout_toRightOf="@id/tv_order_num_hint"
+        android:layout_alignBottom="@id/tv_order_num_hint"
         android:gravity="left"
         android:text="1987624178"/>
     <TextView
-        android:id="@+id/tv_create_order_date_hint"
+        android:id="@+id/tv_order_create_date_hint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/tv_create_order_date"
-        android:layout_alignBottom="@id/tv_id_hint"
+        android:layout_toLeftOf="@+id/tv_order_create_date"
+        android:layout_alignBottom="@id/tv_order_num_hint"
         android:gravity="left"
-        android:text="接单日期"
+        android:text="接单日期:"
         />
     <TextView
-        android:id="@+id/tv_create_order_date"
+        android:id="@+id/tv_order_create_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignBottom="@id/tv_id_hint"
+        android:layout_alignBottom="@id/tv_order_num_hint"
         android:gravity="left"
         android:text="2016-10-12"
         />
@@ -45,8 +45,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/tv_id_hint"
-        android:text="经销商名称"/>
+        android:layout_below="@id/tv_order_num_hint"
+        android:text="经销商名称:"/>
     <TextView
         android:id="@+id/tv_dealer_name"
         android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/tv_dealer_name_hint"
-        android:text="经销商名称"/>
+        android:text="安装地址:"/>
     <TextView
         android:id="@+id/tv_install_address"
         android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/tv_install_address_hint"
-        android:text="状态"/>
+        android:text="状态："/>
     <TextView
         android:id="@+id/tv_status"
         android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
         android:layout_toLeftOf="@+id/tv_price"
         android:layout_alignBottom="@id/tv_status_hint"
         android:gravity="left"
-        android:text="安装费"
+        android:text="安装费:"
         />
     <TextView
         android:id="@+id/tv_price"
@@ -112,7 +112,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/tv_status_hint"
-        android:text="完工日期"/>
+        android:text="完工日期:"/>
     <TextView
         android:id="@+id/tv_finish_date"
         android:layout_width="wrap_content"

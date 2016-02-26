@@ -6,13 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.avos.avoscloud.AVUser;
 import com.beecloud.beecloud.R;
+import com.beecloud.beecloud.event.OrderCreated;
+import com.beecloud.beecloud.event.OrderTaken;
 import com.beecloud.beecloud.model.bean.Order;
+import com.beecloud.beecloud.model.bean.User;
 import com.beecloud.beecloud.presenter.CreateOrderPresenter;
 import com.beecloud.beecloud.view.ICreateOrderView;
 import com.quick.uilib.fragment.TitleBarFragment;
 import com.quick.uilib.titlebar.TitleBar;
 import com.quick.uilib.toast.ToastUtil;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -42,10 +48,16 @@ public class CreateOrderFragment extends TitleBarFragment implements ICreateOrde
             @Override
             public void onClick(View view) {
                 Order order = new Order();
-                Order.fillTestData(order);
+                fillOrderData(order);
                 mSubscriptionList.add(mPresenter.createOrder(order));
+
             }
         });
+    }
+    private void fillOrderData(Order order){
+        Order.fillTestData(order);
+        order.setStatus(Order.STATUS_CREATED);
+        order.setCreatedBy(AVUser.getCurrentUser(User.class));
     }
     @Override
     protected int getContentViewResId() {
@@ -76,5 +88,6 @@ public class CreateOrderFragment extends TitleBarFragment implements ICreateOrde
     public void createOrderSuccess(Order order) {
         ToastUtil.showToast(getActivity(),"创建订单成功");
         getActivity().finish();
+        EventBus.getDefault().post(new OrderCreated());
     }
 }

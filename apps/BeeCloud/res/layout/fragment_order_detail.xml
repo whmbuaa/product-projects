@@ -115,11 +115,12 @@
                 android:src="@drawable/pic_renovation_1"
                 android:scaleType="centerCrop"/>
             <Button
+                android:id="@+id/bt_finish_order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:textSize="@dimen/text_common_size"
-                android:text="   拍照   "/>
+                android:text="   拍照完成   "/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"

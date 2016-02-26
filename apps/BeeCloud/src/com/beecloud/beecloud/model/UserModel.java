@@ -43,7 +43,7 @@ public class UserModel implements IUserModel {
     }
 
     @Override
-    public Observable<Boolean> signup(String userName, String password, Map<String, String> args) {
+    public Observable<Boolean> signup(String userName, String password, Map<String, Object> args) {
         return null;
     }
 

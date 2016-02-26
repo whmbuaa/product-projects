@@ -65,7 +65,7 @@ public class LeanCloudUserModel implements IUserModel{
     }
 
     @Override
-    public Observable<Boolean> signup(final String userName, final String password, final Map<String, String> args) {
+    public Observable<Boolean> signup(final String userName, final String password, final Map<String, Object> args) {
 
         args.put(User.NICK,"未指定昵称");
         args.put(User.AVATAR_URL,"http://pic.wenwen.soso.com/p/20120116/20120116170947-1389148005.jpg");

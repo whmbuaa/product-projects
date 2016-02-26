@@ -12,8 +12,8 @@ import java.io.Serializable;
 @SuppressLint("ParcelCreator")
 public class User extends AVUser {
 
-    public static final int ROLE_WORKER = 0;
-    public static final int ROLE_SHOP = 1;
+    public static final int TYPE_WORKER = 0;
+    public static final int TYPE_DEALER = 1;
 
     public static final String NICK = "nick";
     public static final String TYPE = "type";

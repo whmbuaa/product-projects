@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bt_order_ongoing"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/view_horizontal_margin"
+            android:text="未完订单"
+            />
+        <Button
+            android:id="@+id/bt_order_finished"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/view_horizontal_margin"
+            android:text="完成订单"
+            />
+
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/list_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id = "@+id/order_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#ff880000"
+            android:dividerHeight="10dp"/>
+    </FrameLayout>
+
+</LinearLayout>

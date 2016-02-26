@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVUser;
@@ -40,6 +41,7 @@ public class SignupActivity extends FragmentActivity implements ISignupView {
     private Button mBtSendSms;
     private Button mBtVerifySms;
     private Button mBtSignup;
+    private RadioGroup mRgTypeSelector;
 
   private SignupPresenter mPresenter;
 
@@ -67,6 +69,7 @@ public class SignupActivity extends FragmentActivity implements ISignupView {
       mBtVerifySms = (Button)findViewById(R.id.bt_verify_sms);
       mBtSignup = (Button)findViewById(R.id.bt_signup);
 
+      mRgTypeSelector = (RadioGroup)findViewById(R.id.rg_type_selector);
 
       // set button listener
       mBtSendSms.setOnClickListener(new OnClickListener() {
@@ -87,7 +90,8 @@ public class SignupActivity extends FragmentActivity implements ISignupView {
           @Override
           public void onClick(View view) {
 
-              HashMap<String, String> args = new HashMap<String, String>();
+              HashMap<String, Object> args = new HashMap<String, Object>();
+              args.put(User.TYPE,((mRgTypeSelector.getCheckedRadioButtonId() == R.id.rb_worker)? User.TYPE_WORKER : User.TYPE_DEALER));
 //              args.put(User.MOBILE_PHONE_NUMBER,mEtMobileNumber.getText().toString());
               mSubscriptionList.add(mPresenter.signup(mEtUserName.getText().toString(),mEtPassword.getText().toString(),args));
           }

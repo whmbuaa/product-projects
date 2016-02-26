@@ -23,7 +23,7 @@ public class CreateOrderPresenter {
     }
 
     public Subscription createOrder(Order order){
-        return mOrderModel.createOrder(order).subscribe(new Subscriber<Order>() {
+        return mOrderModel.dealerCreateOrder(order).subscribe(new Subscriber<Order>() {
             @Override
             public void onCompleted() {
 

@@ -15,21 +15,24 @@ import java.util.Date;
 public class Order extends AVObject{
 
     public static final int STATUS_CREATED = 0;
-    public static final int STATUS_FINISHED = 1;
+    public static final int STATUS_TAKEN = 1;
+    public static final int STATUS_FINISHED = 2;
 
-    private static final String NUMBER = "number";
-    private static final String FINISH_DATE = "finish_date";
-    private static final String DEALER_NAME = "dealer_name";
-    private static final String INSTALL_ADDRESS = "install_address";
-    private static final String STATUS = "status";
-    private static final String PRICE = "price";
+    public static final String NUMBER = "number";
+    public static final String FINISH_DATE = "finish_date";
+    public static final String DEALER_NAME = "dealer_name";
+    public static final String DEALER_ADDRESS = "dealer_address";
+    public static final String INSTALL_ADDRESS = "install_address";
+    public static final String STATUS = "status";
+    public static final String PRICE = "price";
 
-    private static final String PICKUP_INFO = "pickup_info";
-    private static final String ADDITIONAL_INFO = "additional_info";
+    public static final String PICKUP_INFO = "pickup_info";
+    public static final String ADDITIONAL_INFO = "additional_info";
 
+    public static final String TAKEN_BY = "taken_by";
+    public static final String CREATED_BY = "created_by";
 
     public Order(){};
-
 
     public long getNumber() {
         return getLong(NUMBER);
@@ -53,6 +56,14 @@ public class Order extends AVObject{
 
     public void setDealerName(String dealerName) {
         put(DEALER_NAME,dealerName);
+    }
+
+    public String getDealerAddress() {
+        return getString(DEALER_ADDRESS);
+    }
+
+    public void setDealerAddress(String dealerAddress) {
+        put(DEALER_ADDRESS,dealerAddress);
     }
 
     public String getInstallAddress() {
@@ -93,6 +104,20 @@ public class Order extends AVObject{
         put(ADDITIONAL_INFO,additionalInfo);
     }
 
+    public User getTakenBy() {
+        return getAVObject(TAKEN_BY);
+    }
+
+    public void setTakenBy(User user) {
+        put(TAKEN_BY,user);
+    }
+    public User getCreatedBy() {
+        return getAVObject(CREATED_BY);
+    }
+
+    public void setCreatedBy(User creator) {
+        put(CREATED_BY,creator);
+    }
     public static void fillTestData(Order order) {
 
 

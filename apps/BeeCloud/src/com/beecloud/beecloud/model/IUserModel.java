@@ -11,7 +11,7 @@ import rx.Observable;
  */
 public interface IUserModel {
 
-    Observable<Boolean> signup(String userName, String password, Map<String,String> args);
+    Observable<Boolean> signup(String userName, String password, Map<String,Object> args);
 
     Observable<User> login(String userName, String password);
     User getLoggedInUser();
