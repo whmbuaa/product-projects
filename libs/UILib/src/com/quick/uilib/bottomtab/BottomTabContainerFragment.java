@@ -58,7 +58,7 @@ abstract public class BottomTabContainerFragment extends Fragment {
 				FragmentManager fm = getActivity().getSupportFragmentManager();
 				FragmentTransaction ft = fm.beginTransaction();
 				
-				Fragment checkedFragment = (BottomTabContentFragment)fm.findFragmentByTag(mBottomTabs.get(checkedId-R.id.bottom_bar_button_0).getClass().getName());
+				Fragment checkedFragment = fm.findFragmentByTag(mBottomTabs.get(checkedId-R.id.bottom_bar_button_0).getFragmentClass().getName());
 		
 				try {
 					if(checkedFragment == null){
@@ -70,7 +70,7 @@ abstract public class BottomTabContainerFragment extends Fragment {
 						ft.add(R.id.fragment_container,checkedFragment, checkedFragment.getClass().getName());
 					}
 					else{
-						ft.attach(checkedFragment);
+						ft.show(checkedFragment);
 					}
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -81,7 +81,7 @@ abstract public class BottomTabContainerFragment extends Fragment {
 					
 					Fragment fragToDetach = fm.findFragmentByTag(mBottomTabs.get(fragIndex).getFragmentClass().getName());
 					if((fragToDetach != null)&&(fragToDetach.getClass() != checkedFragment.getClass() )){
-						ft.detach(fragToDetach);
+						ft.hide(fragToDetach);
 					}
 				}
 				

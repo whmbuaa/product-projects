@@ -5,12 +5,15 @@ package com.quick.uilib.fragment;
 
 import android.app.ActionBar.LayoutParams;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.quick.uilib.loading.LoadingFailView;
+import com.quick.uilib.loading.LoadingViewFactoryManager;
 
 /**
  * @author wanghaiming
@@ -28,30 +31,38 @@ public abstract class LoadingFragment extends TitleBarFragment {
 	private State mState = State.STATE_INVALID ;
 	private View mLoadingView;
 	private LoadingFailView mLoadingFailView;
-	
+	private FrameLayout mLoadingViewContainer;
+	private View        mContentView;
+
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		View  rootView = super.onCreateView(inflater, container, savedInstanceState);
-		initView();
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View mainView = super.onCreateView(inflater, container, savedInstanceState);
+		initView(mainView);
 		onEnter();
-		return rootView;
+		return mainView;
 	}
+
 	protected  void onEnter(){
 		loadData();
 		setState(State.STATE_SHOW_LOADING);
 	}
-	private void initView(){
+	private void initView(View mainView){
+
+		mLoadingViewContainer = getLoadingViewContainer(mainView);
+		mContentView = getContentView(mainView);
+
+
 		mLoadingView = getLoadingView();
-		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		params.gravity = Gravity.CENTER;
 		mLoadingView.setLayoutParams(params);
-		mContentContainer.addView(mLoadingView);
+		mLoadingViewContainer.addView(mLoadingView);
 		
 		mLoadingFailView = getLoadingFailView();
 		params = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		mLoadingFailView.setLayoutParams(params);
-		mContentContainer.addView(mLoadingFailView);
+		mLoadingViewContainer.addView(mLoadingFailView);
 	}
 	protected View getLoadingView(){
 		if(mLoadingView == null){
@@ -89,8 +100,14 @@ public abstract class LoadingFragment extends TitleBarFragment {
 		}
 	}
 	
-	protected abstract View createLoadingView();
-	protected abstract LoadingFailView createLoadingFailView();
+	protected  View createLoadingView(){
+		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingView(getActivity());
+	}
+	protected  LoadingFailView createLoadingFailView(){
+		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingFailView(getActivity());
+	}
 	protected abstract void loadData();
+	protected abstract FrameLayout getLoadingViewContainer(View mainView);
+	protected abstract View        getContentView(View mainView);
 	
 }
