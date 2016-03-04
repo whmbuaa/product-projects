@@ -10,6 +10,8 @@ import com.beecloud.beecloud.model.bean.User;
 import com.beecloud.beecloud.view.ICreateOrderView;
 import com.beecloud.beecloud.view.IOrderDetailView;
 
+import java.util.Date;
+
 import rx.Subscriber;
 import rx.Subscription;
 
@@ -47,6 +49,7 @@ public class OrderDetailPresenter {
     }
     public  Subscription finishOrder(Order order){
         order.setStatus(Order.STATUS_FINISHED);
+        order.setFinishDate(new Date());
         return mOrderModel.updateOrder(order).subscribe(new Subscriber<Order>() {
             @Override
             public void onCompleted() {

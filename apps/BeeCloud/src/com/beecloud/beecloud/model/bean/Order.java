@@ -104,19 +104,22 @@ public class Order extends AVObject{
         put(ADDITIONAL_INFO,additionalInfo);
     }
 
-    public User getTakenBy() {
-        return getAVObject(TAKEN_BY);
+    public String getTakenBy() {
+
+        return getString(TAKEN_BY);
     }
 
     public void setTakenBy(User user) {
-        put(TAKEN_BY,user);
+
+        put(TAKEN_BY,user.getObjectId());
     }
-    public User getCreatedBy() {
-        return getAVObject(CREATED_BY);
+    public String getCreatedBy() {
+        return getString(CREATED_BY);
     }
 
     public void setCreatedBy(User creator) {
-        put(CREATED_BY,creator);
+
+        put(CREATED_BY,creator.getObjectId());
     }
     public static void fillTestData(Order order) {
 

@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.avos.avoscloud.AVUser;
+import com.avos.avoscloud.RequestPasswordResetCallback;
 import com.beecloud.beecloud.R;
 import com.beecloud.beecloud.event.OrderFinished;
 import com.beecloud.beecloud.event.OrderTaken;
@@ -19,10 +21,14 @@ import com.quick.uilib.toast.ToastUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import rx.Subscription;
 
 /**
@@ -35,28 +41,105 @@ public class OrderDetailFragment extends TitleBarFragment implements IOrderDetai
 
     private Order mOrder;
 
-    private Button mBtnAction;
+    @Bind(R.id.bt_finish_order)
+    Button mBtnAction;
+
+    @Bind(R.id.tv_order_num)
+    TextView mTvOrderNum;
+
+    @Bind(R.id.tv_dealer_name)
+    TextView mTvDealerName;
+
+    @Bind(R.id.tv_install_address)
+    TextView mTvInstallAddress;
+
+    @Bind(R.id.tv_order_create_date)
+    TextView mTvOrderCreateDate;
+
+    @Bind(R.id.tv_status)
+    TextView mTvOrderStatus;
+
+    @Bind(R.id.tv_finish_date)
+    TextView mTvOrderFinishDate;
+
+    @Bind(R.id.tv_finish_date_hint)
+    TextView mTvOrderFinishDateHint;
+
 
     private List<Subscription> mSubscriptionList = new LinkedList<Subscription>();
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this,view);
         init(view);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 
     private void init(View mainView){
         mPresenter = new OrderDetailPresenter(this,getActivity());
         mOrder = getActivity().getIntent().getParcelableExtra(ORDER);
+        initActionButton(mBtnAction);
 
-        mBtnAction = (Button)mainView.findViewById(R.id.bt_finish_order);
+        updateOrderInfo(mOrder);
+
+    }
+
+    private void updateOrderInfo(Order order) {
+        mTvOrderNum.setText(String.valueOf(mOrder.getNumber()));
+        mTvDealerName.setText(mOrder.getDealerName());
+        mTvInstallAddress.setText(mOrder.getInstallAddress());
+        mTvOrderCreateDate.setText(new SimpleDateFormat("yyyy-MM-dd").format(mOrder.getCreatedAt()));
+
+        String status = null;
+        switch(mOrder.getStatus()){
+            case Order.STATUS_CREATED :
+                status = "未认领";
+                break;
+            case Order.STATUS_TAKEN :
+                status = "进行中";
+                break;
+            case Order.STATUS_FINISHED :
+                status = "已完成";
+                break;
+        }
+        mTvOrderStatus.setText(status);
+        if(mOrder.getStatus() == Order.STATUS_FINISHED){
+            mTvOrderFinishDateHint.setVisibility(View.VISIBLE);
+            mTvOrderFinishDate.setVisibility(View.VISIBLE);
+            mTvOrderFinishDate.setText(new SimpleDateFormat("yyyy-MM-dd").format(mOrder.getFinishDate()));
+        }
+        else {
+            mTvOrderFinishDateHint.setVisibility(View.INVISIBLE);
+            mTvOrderFinishDate.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void initActionButton(Button btnAction) {
+
+        AVUser current = AVUser.getCurrentUser(User.class);
+        String creator = mOrder.getCreatedBy();
+//        if(AVUser.getCurrentUser(User.class)==mOrder.getCreatedBy() ){
+        if(current.getObjectId().equals( creator)) {
+            mBtnAction.setVisibility(View.INVISIBLE);
+        }
+        else{
+            mBtnAction.setVisibility(View.VISIBLE);
+        }
+
+
         if(mOrder.getStatus() == Order.STATUS_CREATED){
             // take
-            mBtnAction.setText("抢订单");
+            btnAction.setText("抢订单");
         }
         else { // finish
-            mBtnAction.setText("完成订单");
+            btnAction.setText("完成订单");
         }
-        mBtnAction.setOnClickListener(new View.OnClickListener() {
+        btnAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(mOrder.getStatus() == Order.STATUS_CREATED){
@@ -70,6 +153,8 @@ public class OrderDetailFragment extends TitleBarFragment implements IOrderDetai
             }
         });
     }
+
+
     @Override
     protected int getContentViewResId() {
         return R.layout.fragment_order_detail;

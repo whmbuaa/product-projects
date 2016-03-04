@@ -2,6 +2,7 @@ package com.beecloud.beecloud.model;
 
 import android.content.Context;
 
+import com.avos.avoscloud.AVACL;
 import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.AVUser;
 import com.beecloud.beecloud.model.bean.Order;
@@ -48,6 +49,15 @@ public class LeanCloudOrderModel implements  IOrderModel {
             public void call(Subscriber<? super Order> subscriber) {
                 if(!subscriber.isUnsubscribed()){
                     try {
+
+                        // set acl
+//                        AVACL avacl = new AVACL();
+//                        avacl.setReadAccess(AVUser.getCurrentUser(),true);
+//                        avacl.setWriteAccess(AVUser.getCurrentUser(),true);
+//                        avacl.setRoleReadAccess("worker",true);
+//                        avacl.setRoleWriteAccess("worker",true);
+//                        order.setACL(avacl);
+
                         order.setFetchWhenSave(true);
                         order.save();
                         subscriber.onNext(order);
@@ -69,7 +79,7 @@ public class LeanCloudOrderModel implements  IOrderModel {
                 if(!subscriber.isUnsubscribed()){
                     try {
                         AVQuery<Order> query = new AVQuery<Order>("Order");
-                        query.whereEqualTo(Order.CREATED_BY, AVUser.getCurrentUser(User.class));
+                        query.whereEqualTo(Order.CREATED_BY, AVUser.getCurrentUser(User.class).getObjectId());
                         query.orderByDescending(Order.CREATED_AT);
                         List<Order> ordetList = query.find();
                         subscriber.onNext(ordetList);
@@ -92,7 +102,7 @@ public class LeanCloudOrderModel implements  IOrderModel {
                     try {
                         AVQuery<Order> query = new AVQuery<Order>("Order");
                         query.whereEqualTo(Order.STATUS,Order.STATUS_CREATED);
-                        query.whereEqualTo(Order.CREATED_BY,AVUser.getCurrentUser(User.class));
+                        query.whereEqualTo(Order.CREATED_BY,AVUser.getCurrentUser(User.class).getObjectId());
                         query.orderByDescending(Order.CREATED_AT);
                         List<Order> ordetList = query.find();
                         subscriber.onNext(ordetList);
@@ -116,7 +126,7 @@ public class LeanCloudOrderModel implements  IOrderModel {
                         final AVQuery<Order> query = new AVQuery<Order>("Order");
                         query.whereGreaterThan(Order.STATUS,Order.STATUS_CREATED);
                         query.whereLessThan(Order.STATUS,Order.STATUS_FINISHED);
-                        query.whereEqualTo(Order.CREATED_BY,AVUser.getCurrentUser(User.class));
+                        query.whereEqualTo(Order.CREATED_BY,AVUser.getCurrentUser(User.class).getObjectId());
                         query.orderByDescending(Order.CREATED_AT);
                         List<Order> ordetList = query.find();
                         subscriber.onNext(ordetList);
@@ -139,7 +149,7 @@ public class LeanCloudOrderModel implements  IOrderModel {
                     try {
                         AVQuery<Order> query = new AVQuery<Order>("Order");
                         query.whereEqualTo(Order.STATUS,Order.STATUS_FINISHED);
-                        query.whereEqualTo(Order.CREATED_BY,AVUser.getCurrentUser(User.class));
+                        query.whereEqualTo(Order.CREATED_BY,AVUser.getCurrentUser(User.class).getObjectId());
                         query.orderByDescending(Order.FINISH_DATE);
                         List<Order> ordetList = query.find();
                         subscriber.onNext(ordetList);
@@ -161,7 +171,7 @@ public class LeanCloudOrderModel implements  IOrderModel {
                 if(!subscriber.isUnsubscribed()){
                     try {
                         AVQuery<Order> query = new AVQuery<Order>("Order");
-                        query.whereEqualTo(Order.TAKEN_BY, AVUser.getCurrentUser(User.class));
+                        query.whereEqualTo(Order.TAKEN_BY, AVUser.getCurrentUser(User.class).getObjectId());
                         query.orderByDescending(Order.CREATED_AT);
                         List<Order> ordetList = query.find();
                         subscriber.onNext(ordetList);
@@ -207,7 +217,7 @@ public class LeanCloudOrderModel implements  IOrderModel {
                         final AVQuery<Order> query = new AVQuery<Order>("Order");
                         query.whereGreaterThan(Order.STATUS,Order.STATUS_CREATED);
                         query.whereLessThan(Order.STATUS,Order.STATUS_FINISHED);
-                        query.whereEqualTo(Order.TAKEN_BY,AVUser.getCurrentUser(User.class));
+                        query.whereEqualTo(Order.TAKEN_BY,AVUser.getCurrentUser(User.class).getObjectId());
                         query.orderByDescending(Order.CREATED_AT);
                         List<Order> ordetList = query.find();
                         subscriber.onNext(ordetList);
@@ -230,7 +240,7 @@ public class LeanCloudOrderModel implements  IOrderModel {
                     try {
                         AVQuery<Order> query = new AVQuery<Order>("Order");
                         query.whereEqualTo(Order.STATUS,Order.STATUS_FINISHED);
-                        query.whereEqualTo(Order.TAKEN_BY,AVUser.getCurrentUser(User.class));
+                        query.whereEqualTo(Order.TAKEN_BY,AVUser.getCurrentUser(User.class).getObjectId());
                         query.orderByDescending(Order.FINISH_DATE);
                         List<Order> ordetList = query.find();
                         subscriber.onNext(ordetList);
