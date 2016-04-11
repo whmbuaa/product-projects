@@ -4,6 +4,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     compile project(':Framework')
 
+    compile 'com.android.support:recyclerview-v7:23.2.0'
+    compile 'com.jcodecraeer:xrecyclerview:1.2.6'
 }
 
 android {
