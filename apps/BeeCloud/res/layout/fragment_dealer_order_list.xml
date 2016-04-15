@@ -54,7 +54,7 @@
         android:id="@+id/list_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <android.support.v7.widget.RecyclerView
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
             android:id = "@+id/order_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

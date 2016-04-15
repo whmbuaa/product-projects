@@ -23,6 +23,7 @@ public class BeeCloudApp extends BaseApplication {
         AVObject.registerSubclass(PickupInfo.class);
         AVObject.registerSubclass(AdditionalInfo.class);
         AVUser.alwaysUseSubUserClass(User.class);
+        AVOSCloud.setDebugLogEnabled(true);
         AVOSCloud.initialize(this, "1BMQIW8J0wF2axmHOFWKkYWm-gzGzoHsz", "ODx7XQHffMPGLPsbaH6Y0H7e");
 
     }

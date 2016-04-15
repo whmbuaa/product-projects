@@ -5,6 +5,9 @@ import android.annotation.SuppressLint;
 import com.avos.avoscloud.AVUser;
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by wanghaiming on 2016/1/27.
@@ -19,7 +22,6 @@ public class User extends AVUser {
     public static final String TYPE = "type";
     public static final String AVATAR_URL = "avatar_url";
     public static final String MOBILE_PHONE_NUMBER = "mobilePhoneNumber";
-
 
     public String getNick() {
         return getString(NICK);

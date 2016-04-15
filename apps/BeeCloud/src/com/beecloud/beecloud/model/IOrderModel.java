@@ -18,6 +18,7 @@ public interface IOrderModel {
     Observable<List<Order>> dealerQueryUnTakenOrder();
     Observable<List<Order>> dealerQueryOngoingOrder();
     Observable<List<Order>> dealerQueryFinishedOrder();
+
     //worker
     Observable<List<Order>> workdrQueryAllOrder();
     Observable<List<Order>> workerQueryUnTakenOrder();

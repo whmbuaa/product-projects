@@ -6,6 +6,7 @@ import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVUser;
 import com.beecloud.beecloud.model.bean.User;
 
+import java.util.LinkedList;
 import java.util.Map;
 
 import rx.Observable;

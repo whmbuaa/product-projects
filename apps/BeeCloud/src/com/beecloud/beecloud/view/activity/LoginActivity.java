@@ -96,7 +96,7 @@ public class LoginActivity extends FragmentActivity implements ILoginView {
     public void loginSuccess(User user) {
         ProgressDialogUtil.dismiss();
         finish();
-        MainActivity.launch(this);
+        LaunchActivity.launch(this);
     }
 
     @Override
