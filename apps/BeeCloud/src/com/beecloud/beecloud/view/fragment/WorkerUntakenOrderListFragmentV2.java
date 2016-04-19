@@ -1,7 +1,6 @@
 package com.beecloud.beecloud.view.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,81 +9,43 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.beecloud.beecloud.R;
-import com.beecloud.beecloud.model.IOrderModelV2;
 import com.beecloud.beecloud.model.bean.Order;
-import com.beecloud.beecloud.presenter.DealerOrderListPresenter;
-import com.beecloud.beecloud.presenter.OrderListAdapter;
-import com.beecloud.beecloud.view.IDealerOrderListView;
-import com.beecloud.beecloud.view.activity.CreateOrderActivity;
+import com.beecloud.beecloud.presenter.WorkerUntakenOrderListPresenter;
+import com.beecloud.beecloud.view.IWorkerUntakenOrderListView;
 import com.beecloud.beecloud.view.activity.OrderDetailActivity;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.quick.framework.refreshloadmore.Page;
-import com.quick.uilib.fragment.LoadingFragment;
 import com.quick.uilib.fragment.TitleBarFragment;
 import com.quick.uilib.loading.AbstractLoadingPage;
 import com.quick.uilib.loading.ILoadingPage;
 import com.quick.uilib.recyclerview.DividerItemDecoration;
-import com.quick.uilib.recyclerview.OnItemClickListener;
 import com.quick.uilib.titlebar.TitleBar;
 import com.quick.uilib.toast.ToastUtil;
 
 /**
- * Created by wanghaiming on 2016/4/13.
+ * Created by wanghaiming on 2016/4/19.
  */
-public class DealerOrderListFragmentV2 extends TitleBarFragment implements IDealerOrderListView {
+public class WorkerUntakenOrderListFragmentV2 extends TitleBarFragment implements IWorkerUntakenOrderListView {
 
-    private DealerOrderListPresenter mPresenter;
-    private ILoadingPage             mLoadingPage;
     private XRecyclerView mRecyclerView;
+    private WorkerUntakenOrderListPresenter mPresenter;
+    private ILoadingPage    mLoadingPage;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View mainView = super.onCreateView(inflater,container,savedInstanceState);
+
+        mPresenter = new WorkerUntakenOrderListPresenter(this);
+        initView(mainView);
+        return mainView;
+    }
 
     private void initView(View mainView){
-
-        mainView.findViewById(R.id.bt_order_create).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CreateOrderActivity.launch(getActivity());
-            }
-        });
-
-        mainView.findViewById(R.id.bt_order_all).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPresenter.setQueryType(IOrderModelV2.DEALER_ALL_ORDER);
-                mRecyclerView.reset();
-                mPresenter.loadData();
-            }
-        });
-        mainView.findViewById(R.id.bt_order_untaken).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPresenter.setQueryType(IOrderModelV2.DEALER_UNTAKEN_ORDER);
-                mRecyclerView.reset();
-                mPresenter.loadData();
-            }
-        });
-        mainView.findViewById(R.id.bt_order_ongoing).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPresenter.setQueryType(IOrderModelV2.DEALER_ONGOING_ORDER);
-                mRecyclerView.reset();
-                mPresenter.loadData();
-            }
-        });
-        mainView.findViewById(R.id.bt_order_finished).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPresenter.setQueryType(IOrderModelV2.DEALER_FINISHED_ORDER);
-                mRecyclerView.reset();
-                mPresenter.loadData();
-            }
-        });
-
         mRecyclerView = (XRecyclerView)mainView.findViewById(R.id.order_list);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setIsnomore(false);
 
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mPresenter.getAdapter());
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL_LIST));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL_LIST));
+        mRecyclerView.setIsnomore(false);
         mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
@@ -97,29 +58,18 @@ public class DealerOrderListFragmentV2 extends TitleBarFragment implements IDeal
             }
         });
 
-        mLoadingPage = new DealerOrderListLoadingPage(mainView);
+        mLoadingPage = new WorkerUntakenOrderListLoadingPage(mainView);
         mPresenter.loadData();
-
     }
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View mainView = super.onCreateView(inflater, container,savedInstanceState);
-        mPresenter = new DealerOrderListPresenter(this,getActivity());
-        initView(mainView);
-        return mainView;
-    }
-
     @Override
     protected int getContentViewResId() {
-        return R.layout.fragment_dealer_order_list;
+        return R.layout.fragment_worker_untaken_order_list;
     }
 
     @Override
     protected void initTitleBar(TitleBar titleBar) {
-        titleBar.setTitle("安装单列表");
+        titleBar.setTitle("新增订单");
     }
-
 
     @Override
     public void onLoading() {
@@ -127,8 +77,7 @@ public class DealerOrderListFragmentV2 extends TitleBarFragment implements IDeal
     }
 
     @Override
-    public void onLoadInitialDataSuccess(Page<Order> page)
-    {
+    public void onLoadInitialDataSuccess(Page<Order> page) {
         if((page.getDataList() == null)||(page.getDataList().size() == 0)){
             mLoadingPage.showEmpty();
         }
@@ -143,14 +92,12 @@ public class DealerOrderListFragmentV2 extends TitleBarFragment implements IDeal
 
     @Override
     public void onLoadInitialDataFail(Throwable error) {
-
         mLoadingPage.showLoadingFail(error);
         ToastUtil.showToast(getActivity(),"onLoadInitialDataFail-error:"+error);
     }
 
     @Override
     public void onLoadLatestDataSuccess(Page<Order> page) {
-
         mRecyclerView.loadMoreComplete();
         mRecyclerView.refreshComplete();
         mRecyclerView.setIsnomore(!page.isHasMore());
@@ -168,6 +115,7 @@ public class DealerOrderListFragmentV2 extends TitleBarFragment implements IDeal
 
     @Override
     public void onLoadMoreDataSuccess(Page<Order> page) {
+
         mRecyclerView.loadMoreComplete();
         mRecyclerView.refreshComplete();
         mRecyclerView.setIsnomore(!page.isHasMore());
@@ -183,19 +131,18 @@ public class DealerOrderListFragmentV2 extends TitleBarFragment implements IDeal
     }
 
     @Override
-    public void onItemClicked(View itemView, int position,Order data) {
+    public void onItemClicked(View itemView, int position, Order data) {
         OrderDetailActivity.launch(getActivity(),data);
     }
 
     @Override
-    public void onItemLongClicked(View itemView, int position,Order data) {
+    public void onItemLongClicked(View itemView, int position, Order data) {
 
     }
 
+    private  class WorkerUntakenOrderListLoadingPage extends AbstractLoadingPage {
 
-    private  final class DealerOrderListLoadingPage extends AbstractLoadingPage {
-
-        public DealerOrderListLoadingPage(View mainView){
+        public WorkerUntakenOrderListLoadingPage(View mainView){
             super(mainView);
         }
         @Override
@@ -220,11 +167,12 @@ public class DealerOrderListFragmentV2 extends TitleBarFragment implements IDeal
                 });
             }
             super.showLoadingFail(error);
+
         }
 
         @Override
         public void showEmpty() {
-            mLoadingFailView.setMessage("啥也没有，萌萌哒!");
+            mLoadingFailView.setMessage("老板还没有发布新订单哦，请耐心等待");
             showLoadingFail(null);
         }
     }

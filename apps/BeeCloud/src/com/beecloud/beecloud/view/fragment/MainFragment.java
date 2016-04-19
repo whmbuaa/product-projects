@@ -54,8 +54,8 @@ public class MainFragment extends BottomTabContainerFragment {
         List<BottomTab> result = new LinkedList<BottomTab>();
 
         if(User.getCurrentUser(User.class).getType() == User.TYPE_WORKER){
-            result.add(new BottomTab(getActivity(), R.drawable.ic_tab_home, "我的订单", WorkerTakenOrderListFragment.class));
-            result.add(new BottomTab(getActivity(), R.drawable.ic_tab_discovery, "新订单", WorkerUnTakenOrderListFragment.class));
+            result.add(new BottomTab(getActivity(), R.drawable.ic_tab_home, "我的订单", WorkerTakenOrderListFragmentV2.class));
+            result.add(new BottomTab(getActivity(), R.drawable.ic_tab_discovery, "新订单", WorkerUntakenOrderListFragmentV2.class));
         }
         else {
             result.add(new BottomTab(getActivity(), R.drawable.ic_tab_home, "我的订单", DealerOrderListFragmentV2.class));
