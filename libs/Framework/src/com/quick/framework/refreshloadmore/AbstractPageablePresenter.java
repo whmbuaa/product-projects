@@ -14,10 +14,10 @@ abstract public class AbstractPageablePresenter<T> implements IPageablePresenter
     protected RecyclerView.Adapter mAdapter;
     protected List<T> mDataList ;
     protected IPageableData<T>    mPageableData;
-    protected IPageableView<T>    mView;
+    protected IPageableView<T> mPageableView;
 
     public AbstractPageablePresenter(IPageableView<T> view){
-        mView = view;
+        mPageableView = view;
         mPageableData = createPageableData();
         mDataList = mPageableData.getDataList();
         mAdapter = createAdapter(mDataList);
@@ -37,7 +37,7 @@ abstract public class AbstractPageablePresenter<T> implements IPageablePresenter
         List<T> localDataList = loadLocalData();
 
         if((localDataList == null)||(localDataList.size() == 0)){
-            mView.onLoading();
+            mPageableView.onLoading();
         }
         else{
             mDataList.addAll(localDataList);
@@ -58,7 +58,7 @@ abstract public class AbstractPageablePresenter<T> implements IPageablePresenter
 
                     @Override
                     public void onError(Throwable e) {
-                        mView.onLoadInitialDataFail(e);
+                        mPageableView.onLoadInitialDataFail(e);
                     }
 
                     @Override
@@ -66,7 +66,7 @@ abstract public class AbstractPageablePresenter<T> implements IPageablePresenter
                         mDataList.clear();
                         mDataList.addAll(page.getDataList());
                         mAdapter.notifyDataSetChanged();
-                        mView.onLoadInitialDataSuccess(page);
+                        mPageableView.onLoadInitialDataSuccess(page);
                     }
                 });
          return subscription;
@@ -83,14 +83,14 @@ abstract public class AbstractPageablePresenter<T> implements IPageablePresenter
 
                     @Override
                     public void onError(Throwable e) {
-                        mView.onLoadMoreDataFail(e);
+                        mPageableView.onLoadMoreDataFail(e);
                     }
 
                     @Override
                     public void onNext(Page<T> page) {
                         mDataList.addAll(page.getDataList());
                         mAdapter.notifyDataSetChanged();
-                        mView.onLoadMoreDataSuccess(page);
+                        mPageableView.onLoadMoreDataSuccess(page);
                     }
                 });
         return subscription;
@@ -107,7 +107,7 @@ abstract public class AbstractPageablePresenter<T> implements IPageablePresenter
 
                     @Override
                     public void onError(Throwable e) {
-                        mView.onLoadLatestDataFail(e);
+                        mPageableView.onLoadLatestDataFail(e);
                     }
 
                     @Override
@@ -122,7 +122,7 @@ abstract public class AbstractPageablePresenter<T> implements IPageablePresenter
                             mDataList.addAll(page.getDataList());
                         }
                         mAdapter.notifyDataSetChanged();
-                        mView.onLoadLatestDataSuccess(page);
+                        mPageableView.onLoadLatestDataSuccess(page);
                     }
                 });
         return subscription;
