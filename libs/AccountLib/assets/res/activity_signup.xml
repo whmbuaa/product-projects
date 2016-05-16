@@ -1,0 +1,111 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <!-- Login form -->
+
+    <ScrollView
+        android:id="@+id/signup_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+		 <LinearLayout
+		     android:layout_width="match_parent"
+		     android:layout_height="wrap_content"
+		     android:orientation="vertical">
+				<TableLayout 
+				    android:id="@+id/sms_verification_contaier"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:stretchColumns="0">
+					<TableRow>
+					     <EditText
+			                android:id="@+id/et_mobile_number"
+			                android:hint="手机号码"
+			                android:inputType="textEmailAddress"
+			                android:maxLines="1"
+			                android:singleLine="true"
+			                android:text="13911073881" />
+					      <Button 
+					          android:id="@+id/bt_send_sms"
+					          android:text="发送验证码"/>
+					</TableRow>"
+				    <TableRow >
+				        <EditText
+			                android:id="@+id/et_sms"
+			                android:hint="手机号码"
+			                android:inputType="textEmailAddress"
+			                android:maxLines="1"
+			                android:singleLine="true" />
+					      <Button 
+					          android:id="@+id/bt_verify_sms"
+					          android:text="验证手机"/>
+				    </TableRow>
+				</TableLayout>      
+		        <LinearLayout
+		            android:id="@+id/signup_container"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+		            android:orientation="vertical"
+		            android:visibility="gone" >
+		
+		            <EditText
+		                android:id="@+id/username_edit_text"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:hint="用户名"
+		                android:inputType="textEmailAddress"
+		                android:maxLines="1"
+		                android:singleLine="true" />
+		
+		            <EditText
+		                android:id="@+id/password_edit_text"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:hint="密码"
+		                android:inputType="textPassword"
+		                android:maxLines="1"
+		                android:singleLine="true" />
+		            
+		            <EditText
+		                android:id="@+id/password_again_edit_text"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:hint="再次输入密码"
+		                android:inputType="textPassword"
+		                android:maxLines="1"
+		                android:singleLine="true"
+		                android:imeActionId="@+id/edittext_action_signup"
+		                android:imeOptions="actionUnspecified" />
+					<RadioGroup
+						android:id="@+id/rg_type_selector"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center_horizontal"
+						android:orientation="horizontal"
+						android:checkedButton="@+id/rb_dealer">
+						<RadioButton
+							android:id="@+id/rb_dealer"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="商家"/>
+						<RadioButton
+							android:id="@+id/rb_worker"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="工人"/>
+					</RadioGroup>
+		
+		            <Button
+		                android:id="@+id/bt_signup"
+		                android:layout_width="match_parent"
+		                android:layout_height="wrap_content"
+		                android:gravity="center"
+		                android:layout_marginTop="16dp"
+		                android:paddingLeft="32dp"
+		                android:paddingRight="32dp"
+		                android:text="注册" />
+		        </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</merge>
