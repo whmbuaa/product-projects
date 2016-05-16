@@ -8,7 +8,7 @@ import rx.Observable;
  * Created by wanghaiming on 2016/4/12.
  */
 public interface IPageableData<T> {
-    static final int  PAGE_SIZE = 10;
+    static final int  PAGE_SIZE = 30;
 
     List<T> getDataList();
     List<T> loadLocalData();
