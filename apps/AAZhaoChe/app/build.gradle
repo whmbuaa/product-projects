@@ -28,5 +28,5 @@ dependencies {
     compile project (':UILib')
     compile project (':Framework')
     compile project(path: ':AccountLib')
-
+    compile project(path: ':sharesdk')
 }

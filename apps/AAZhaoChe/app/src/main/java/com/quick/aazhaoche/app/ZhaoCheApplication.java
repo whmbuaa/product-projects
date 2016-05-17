@@ -10,6 +10,8 @@ import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.SaveCallback;
 import com.quick.aazhaoche.zhaocherequest.model.bean.ZhaoCheRequest;
 
+import cn.sharesdk.framework.ShareSDK;
+
 /**
  * Created by wanghaiming on 2016/5/5.
  */
@@ -18,9 +20,17 @@ public class ZhaoCheApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        initLeanCloud(this);
+        initApp(this);
+
     }
 
+    private  void initApp(Application app){
+        initLeanCloud(app);
+        initShareSdk(app);
+    }
+    private void initShareSdk(Application app){
+        ShareSDK.initSDK(app);
+    }
     private void initLeanCloud(Context context){
         // register all sub classes
         AVObject.registerSubclass(ZhaoCheRequest.class);
