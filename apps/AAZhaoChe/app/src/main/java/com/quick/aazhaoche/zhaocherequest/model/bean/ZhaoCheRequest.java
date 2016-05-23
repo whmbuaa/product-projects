@@ -10,6 +10,15 @@ import com.avos.avoscloud.AVObject;
 public class ZhaoCheRequest extends AVObject {
     private static final String TEST_STRING = "test_string";
 
+    //start point
+        // startPointName
+        //
+    // end point
+    // depart time
+    //originator
+    //attendee
+    // fee
+
     public String getTestString() {
         return getString(TEST_STRING);
     }
