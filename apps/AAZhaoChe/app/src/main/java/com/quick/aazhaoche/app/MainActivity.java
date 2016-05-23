@@ -1,5 +1,6 @@
 package com.quick.aazhaoche.app;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -26,6 +27,7 @@ import java.util.HashMap;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.wechat.friends.Wechat;
@@ -89,11 +91,19 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+//            testShare_onekeyshare(this);
             testShare();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private void testShare_onekeyshare(Context context){
+        OnekeyShare oks = new OnekeyShare();
+        oks.setTitle("我是分享title");
+        oks.setText("我是分享文本");
+        oks.setImageUrl("http://c.hiphotos.baidu.com/image/h%3D200/sign=7b991b465eee3d6d3dc680cb73176d41/96dda144ad3459829813ed730bf431adcaef84b1.jpg");
+        oks.show(context);
     }
     private void testShare(){
 
