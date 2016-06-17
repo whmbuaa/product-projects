@@ -1,35 +1,50 @@
 package com.quick.demo.titlebaractivity.loading;
 
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 
 import com.quick.demo.R;
 import com.quick.uilib.fragment.LoadingFragment;
-import com.quick.uilib.loading.DefaultLoadingViewFactory;
 import com.quick.uilib.loading.LoadingFailView;
+import com.quick.uilib.loading.LoadingViewFactoryManager;
 import com.quick.uilib.titlebar.TitleBar;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class DemoLoadingFragment extends LoadingFragment {
 
 	private static final int TIMER_DELAY = 4000;
 	private Random mRandom = new Random();
 	private Timer mTimer;
-	
+
+
+
+	@Override
+	protected FrameLayout getLoadingViewContainer(View mainView) {
+		return (FrameLayout)mainView.findViewById(R.id.container);
+	}
+
+	@Override
+	protected View getContentView(View mainView) {
+		return mainView.findViewById(R.id.tv_content);
+	}
+
+
+
 	@Override
 	protected View createLoadingView() {
 		// TODO Auto-generated method stub
-		return DefaultLoadingViewFactory.getInstance().createLoadingView(getActivity());
+		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingView(getActivity());
 	}
 
 	@Override
 	protected LoadingFailView createLoadingFailView() {
 		// TODO Auto-generated method stub
 		
-		return DefaultLoadingViewFactory.getInstance().createLoadingFailView(getActivity());
+		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingFailView(getActivity());
 	}
 
 	@Override
@@ -68,6 +83,7 @@ public class DemoLoadingFragment extends LoadingFragment {
 		}, TIMER_DELAY);
 	}
 
+
 	private void handleResult(int result){
 		switch(result){
 		
@@ -103,7 +119,7 @@ public class DemoLoadingFragment extends LoadingFragment {
 	@Override
 	protected void initTitleBar(TitleBar titleBar) {
 		// TODO Auto-generated method stub
-		titleBar.setTitle("�ڶ�������");
+		titleBar.setTitle("测试loading");
 		View leftButton = TitleBar.createImageButton(getActivity(), R.drawable.ic_back);
 		leftButton.setOnClickListener(new OnClickListener() {
 			
@@ -115,7 +131,7 @@ public class DemoLoadingFragment extends LoadingFragment {
 		});
 		titleBar.setLeftButton(leftButton);
 		
-		View rightButton = TitleBar.createButton(getActivity(), "����");
+		View rightButton = TitleBar.createButton(getActivity(), "测试按钮");
 		titleBar.setRightButtons(new View[]{rightButton});
 	}
 

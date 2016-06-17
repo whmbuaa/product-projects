@@ -3,12 +3,19 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.android.tools.build:gradle:2.0.0'
 
     }
 }
 
 apply plugin: 'com.android.application'
+
+repositories {
+    jcenter()
+    flatDir {
+        dirs '../../libs/UILib/libs'
+    }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
@@ -17,7 +24,6 @@ dependencies {
     compile  'io.reactivex:rxjava:1.1.0'
     compile  'io.reactivex:rxandroid:1.1.0'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
-
 
 }
 
@@ -55,10 +61,4 @@ android {
     }
 }
 
-allprojects {
-    repositories {
-        jcenter()
-    }
-
-}
 
