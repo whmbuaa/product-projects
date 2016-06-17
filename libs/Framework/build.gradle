@@ -1,4 +1,20 @@
-apply plugin: 'android-library'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.0.0'
+
+    }
+}
+
+apply plugin: 'com.android.library'
+
+
+repositories {
+    jcenter()
+
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
