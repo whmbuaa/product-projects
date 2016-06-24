@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.quick.uilib.R;
 
@@ -121,6 +122,19 @@ public class TitleBar  extends LinearLayout  {
 		ImageButton button = new ImageButton(context);
 		button.setBackgroundDrawable(null);
 		button.setImageResource(imageResId);
+		return button;
+	}
+	public static ToggleButton createToggleButton(Context context, int buttonDrawableResId,String textOn, String textOff ){
+
+		ToggleButton button = new ToggleButton(context);
+		button.setBackgroundDrawable(null);
+		if(buttonDrawableResId != 0 ){
+			button.setButtonDrawable(buttonDrawableResId);
+		}
+		button.setTextOn(textOn);
+		button.setTextOff(textOff);
+		button.setChecked(false);
+		button.setTextColor(0xffffffff);
 		return button;
 	}
 }

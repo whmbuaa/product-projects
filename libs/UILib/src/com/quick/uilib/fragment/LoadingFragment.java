@@ -4,6 +4,7 @@
 package com.quick.uilib.fragment;
 
 import android.app.ActionBar.LayoutParams;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Gravity;
@@ -30,7 +31,7 @@ public abstract class LoadingFragment extends TitleBarFragment {
 	
 	private State mState = State.STATE_INVALID ;
 	private View mLoadingView;
-	private LoadingFailView mLoadingFailView;
+	protected LoadingFailView mLoadingFailView;
 	private FrameLayout mLoadingViewContainer;
 	private View        mContentView;
 
@@ -71,7 +72,7 @@ public abstract class LoadingFragment extends TitleBarFragment {
 	}
 	protected View getLoadingView(){
 		if(mLoadingView == null){
-			mLoadingView = createLoadingView();
+			mLoadingView = createLoadingView(getContext());
 		}
 		return mLoadingView;
 	}
@@ -79,7 +80,7 @@ public abstract class LoadingFragment extends TitleBarFragment {
 	
 	protected LoadingFailView getLoadingFailView(){
 		if(mLoadingFailView == null){
-			mLoadingFailView = createLoadingFailView();
+			mLoadingFailView = createLoadingFailView(getContext());
 		}
 		return mLoadingFailView;
 	}
@@ -105,11 +106,11 @@ public abstract class LoadingFragment extends TitleBarFragment {
 		}
 	}
 	
-	protected  View createLoadingView(){
-		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingView(getActivity());
+	protected  View createLoadingView(Context context){
+		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingView(context);
 	}
-	protected  LoadingFailView createLoadingFailView(){
-		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingFailView(getActivity());
+	protected  LoadingFailView createLoadingFailView(Context context){
+		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingFailView(context);
 	}
 	protected abstract void loadData();
 	protected abstract FrameLayout getLoadingViewContainer(View mainView);
