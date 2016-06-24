@@ -26,10 +26,12 @@ import com.quick.demo.network.http.GetHomeArticleListRequest;
 import com.quick.demo.network.http.GetHomeArticleListRequest.RequestResult;
 import com.quick.demo.reactx.CombineObservable;
 import com.quick.demo.retrofit.DangApiManager;
+import com.quick.demo.shoppingcart.WhmShoppingCartActivity;
 import com.quick.demo.titlebaractivity.DemoTitleBarActivity;
 import com.quick.demo.titlebaractivity.loading.DemoLoadingActivity;
 import com.quick.framework.util.app.DoubleClickExitHelper;
 import com.quick.framework.util.log.QLog;
+import com.quick.uilib.webview.staticwebpage.StaticWebPageActivity;
 
 import java.util.Date;
 
@@ -157,6 +159,21 @@ public class MainActivity extends Activity {
 				DateTest dateTest = JSON.parseObject(json,DateTest.class);
 
 				QLog.i(dateTest.date.toString()+"getYear is:"+dateTest.date.getYear());
+			}
+		});
+		findViewById(R.id.bt_shopping_cart).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				WhmShoppingCartActivity.launch(MainActivity.this);
+			}
+		});
+
+		findViewById(R.id.bt_static_web_page).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				StaticWebPageActivity.launch(MainActivity.this,"积分规则","http://e.dangdang.com/media/h5/special/credits/index.html");
 			}
 		});
     }

@@ -13,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+
+
     <Button 
         android:id="@+id/get_home_list"
         android:layout_width="match_parent"
@@ -57,5 +59,16 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/retrofit_rxjava"
         android:text="temp_test"/>
-    
+    <Button
+        android:id="@+id/bt_shopping_cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/temp_test"
+        android:text="购物车DEMO"/>
+    <Button
+        android:id="@+id/bt_static_web_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bt_shopping_cart"
+        android:text="static web page demo"/>
 </RelativeLayout>

@@ -26,8 +26,12 @@
             </intent-filter>
         </activity>
          <activity  android:name=".UniversalRadioGroupActivity" />
+        <activity  android:name=".shoppingcart.WhmShoppingCartActivity"
+            android:theme="@style/AppTheme.NoTitleBar"/>
          <activity  android:name="com.quick.demo.titlebaractivity.DemoTitleBarActivity" />
          <activity  android:name="com.quick.demo.titlebaractivity.loading.DemoLoadingActivity" />
+        <activity  android:name="com.quick.uilib.webview.staticwebpage.StaticWebPageActivity"
+            android:theme="@style/AppTheme.NoTitleBar"/>
          
     </application>
 

@@ -33,20 +33,6 @@ public class DemoLoadingFragment extends LoadingFragment {
 	}
 
 
-
-	@Override
-	protected View createLoadingView() {
-		// TODO Auto-generated method stub
-		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingView(getActivity());
-	}
-
-	@Override
-	protected LoadingFailView createLoadingFailView() {
-		// TODO Auto-generated method stub
-		
-		return LoadingViewFactoryManager.getLoadingViewFactory().createLoadingFailView(getActivity());
-	}
-
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub
