@@ -39,8 +39,13 @@ public abstract class LoadingFragment extends TitleBarFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View mainView = super.onCreateView(inflater, container, savedInstanceState);
 		initView(mainView);
-		onEnter();
 		return mainView;
+	}
+
+	@Override
+	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
+		onEnter();
 	}
 
 	protected  void onEnter(){
