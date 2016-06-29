@@ -23,6 +23,9 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.PtrHandler;
 
 /**
  * Created by wanghaiming on 2016/6/22.
@@ -48,6 +51,9 @@ public class WhmShoppintCartFragment extends TitleBarFragment {
     @Bind(R.id.shoppintcart_bottom_edit_container)
     View mEditContainer;
 
+    @Bind(R.id.ptr_frame_layout)
+    PtrFrameLayout mPtrFrameLayout;
+
     //other
 
     WhmShoppingCartAdapter mAdapter;
@@ -59,11 +65,32 @@ public class WhmShoppintCartFragment extends TitleBarFragment {
 
         ButterKnife.bind(this,mainView);
 
+        initPtr();
         initExpandableList();
         initBottomButton();
         registerForContextMenu(mExpandableListView);
 
         return mainView;
+    }
+
+    private void initPtr() {
+        mPtrFrameLayout.setDurationToCloseHeader(200);
+        mPtrFrameLayout.setPtrHandler(new PtrHandler() {
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout ptrFrameLayout, View view, View header) {
+                return PtrDefaultHandler.checkContentCanBePulledDown(ptrFrameLayout, view, header);
+            }
+
+            @Override
+            public void onRefreshBegin(final PtrFrameLayout ptrFrameLayout) {
+                ptrFrameLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ptrFrameLayout.refreshComplete();
+                    }
+                }, 1500);
+            }
+        });
     }
 
     @Override

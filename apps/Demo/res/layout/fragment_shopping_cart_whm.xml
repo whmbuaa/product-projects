@@ -4,13 +4,19 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <ExpandableListView
-        android:id="@+id/expandable_list"
+    <com.quick.uilib.ultrapulltorefresh.PtrDangFrameLayout
+        android:id="@+id/ptr_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_container"
-        android:groupIndicator="@null"
-        />
+        android:layout_above="@+id/bottom_container">
+
+        <ExpandableListView
+            android:id="@+id/expandable_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:groupIndicator="@null"
+            />
+    </com.quick.uilib.ultrapulltorefresh.PtrDangFrameLayout>
     <include
         android:id="@+id/bottom_container"
         layout="@layout/soppingcart_bottom_container"
