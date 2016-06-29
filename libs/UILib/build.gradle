@@ -22,6 +22,7 @@ dependencies {
     compile project(':Framework')
 //    compile 'com.jcodecraeer:xrecyclerview:1.2.6'
     compile(name:'xrecyclerview-debug',ext:'aar')
+    compile(name:'ultra-ptr-1.0.9',ext:'aar')
 }
 
 android {
